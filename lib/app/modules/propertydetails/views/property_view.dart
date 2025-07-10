@@ -62,7 +62,7 @@ class PropertyDetails extends StatelessWidget {
                       ),
                     ),
                     buttonWidth: Get.width/2,
-                    child: const Text( 'Chat on Whatsapp',),
+                    child:  Text( 'buttons_chat_on_whatsapp'.tr),
                   ),
       ),
     
