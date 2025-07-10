@@ -34,22 +34,22 @@ class BottomNavBar extends StatelessWidget {
             items: [
               SalomonBottomBarItem(
                 icon: const Icon(Icons.home, size: 35),
-                title:  Text("Home",style: Theme.of(context).textTheme.labelSmall),
+                title:  Text('bar_label_1'.tr,style: Theme.of(context).textTheme.labelSmall),
                 selectedColor: Colors.indigo,
               ),
               SalomonBottomBarItem(
                 icon: const Icon(Icons.store, size: 35),
-                title:  Text("Hot Deals",style: Theme.of(context).textTheme.labelSmall),
+                title:  Text('bar_label_2'.tr,style: Theme.of(context).textTheme.labelSmall),
                 selectedColor: Colors.teal,
               ),
               SalomonBottomBarItem(
                 icon: const Icon(Icons.add, size: 35),
-                title:  Text("Add Offer",style: Theme.of(context).textTheme.labelSmall),
+                title:  Text('bar_label_3'.tr,style: Theme.of(context).textTheme.labelSmall),
                 selectedColor: Colors.red,
               ),
               SalomonBottomBarItem(
                 icon: const Icon(Icons.person, size: 35),
-                title:  Text("My Offers",style: Theme.of(context).textTheme.labelSmall),
+                title:  Text('bar_label_4'.tr,style: Theme.of(context).textTheme.labelSmall),
                 selectedColor: Colors.indigo,
               ),
             ],
