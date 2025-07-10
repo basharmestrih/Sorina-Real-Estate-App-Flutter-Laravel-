@@ -1,9 +1,9 @@
    import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_house_app/app/modules/home/views/widgets/Bottombar.dart' show BottomNavBar;
+import 'package:my_house_app/app/modules/home/views/widgets/bottombar.dart' show BottomNavBar;
 import 'package:my_house_app/app/modules/property/controllers/propertycontroller.dart';
 import 'package:my_house_app/app/modules/property/view/property.dart';
-import '../controllers/homecontroller.dart';
+import '../controllers/home_controller.dart';
 
 class HomeView extends StatelessWidget {
   
