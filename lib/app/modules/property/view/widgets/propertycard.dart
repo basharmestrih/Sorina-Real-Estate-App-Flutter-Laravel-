@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:my_house_app/app/core/theme/colors.dart';
-import 'package:my_house_app/app/core/theme/colors2.dart';
 import 'package:my_house_app/app/routes/app_pages.dart';
 import 'package:my_house_app/app/widgets/responsive_buttun.dart';
 
