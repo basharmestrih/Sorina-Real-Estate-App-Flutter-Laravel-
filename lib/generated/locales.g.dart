@@ -12,6 +12,48 @@ class AppTranslation {
 class LocaleKeys {
   LocaleKeys._();
   static const welcome = 'welcome';
+  //bar items
+  static const bar_label_1 = 'bar_label_1';
+  static const bar_label_2 = 'bar_label_2';
+  static const bar_label_3 = 'bar_label_3';
+  static const bar_label_4 = 'bar_label_4';
+  //property
+  static const button_search = 'button_search';
+  static const search_label_hint ='search_label_hint';
+  static const category_damascus = 'category_damascus';
+  static const category_aleppo = 'category_aleppo';
+  static const category_lattakia = 'category_lattakia';
+  static const category_homs = 'category_homs';
+  static const category_tartous = 'category_tartous';
+  static const category_idleb = 'category_idleb';
+  static const category_sweidaa = 'category_sweidaa';
+  
+  //property details
+  static const property_details_title = 'property_details_title';
+  static const label_features = 'label_features';
+  //property manager
+  static const title_label = 'title_label';
+  static const title_hint = 'title_hint';
+
+  static const description_label = 'description_label';
+  static const description_hint = 'description_hint';
+
+  static const price_label = 'price_label';
+  static const price_hint = 'price_hint';
+
+  static const bedrooms_label = 'bedrooms_label';
+  static const bedrooms_hint = 'bedrooms_hint';
+
+  static const bathrooms_label = 'bathrooms_label';
+  static const bathrooms_hint = 'bathrooms_hint';
+
+  static const area_label = 'area_label';
+  static const area_hint = 'area_hint';
+
+  static const address_label = 'address_label';
+  static const address_hint = 'address_hint';
+
+  static const submit_property = 'submit_property';
   static const language = 'language';
   static const labels_or = 'labels_or';
   static const labels_login = 'labels_login';
@@ -74,11 +116,57 @@ class LocaleKeys {
   static const buttons_logout = 'buttons_logout';
   static const buttons_sign_in_fb = 'buttons_sign_in_fb';
   static const buttons_sign_in_google = 'buttons_sign_in_google';
+  static const buttons_chat_on_whatsapp = 'buttons_chat_on_whatsapp';
 }
+
 
 class Locales {
   static const ar_SY = {
     'welcome': 'أهلاً بك',
+    //bar items
+    'bar_label_1':  "الصفحة الرئيسية",
+    'bar_label_2':  "عروض مميزة",
+    'bar_label_3':  "عقاراتي",
+    'bar_label_4':  "الحصول على استشارة",
+    //property
+    'button_search': "بحث",
+    'search_label_hint': "ابحث باستخدام الاسم",
+    
+    "category_damascus": "دمشق",
+    "category_aleppo": "حلب",
+    "category_lattakia": "اللاذقية",
+    "category_homs": "حمص",
+    "category_tartous": "طرطوس",
+    "category_idleb": "إدلب",
+    "category_sweidaa": "السويداء",
+
+    //property details
+    'property_details_title':'معلومات العقار',
+    'label_features': 'المزايا الرئيسية ',
+    'label_what_will_you_get':'على ماذا ستحصل',
+    //property manager
+    "title_label": "العنوان",
+    "title_hint": "أدخل عنوان العقار",
+
+    "description_label": "الوصف",
+    "description_hint": "أدخل وصفًا مختصرًا",
+
+    "price_label": "السعر",
+    "price_hint": "أدخل السعر",
+
+    "bedrooms_label": "غرف النوم",
+    "bedrooms_hint": "أدخل عدد غرف النوم",
+
+    "bathrooms_label": "الحمامات",
+    "bathrooms_hint": "أدخل عدد الحمامات",
+
+    "area_label": "المساحة",
+    "area_hint": "أدخل مساحة العقار بالمتر المربع",
+
+    "address_label": "العنوان",
+    "address_hint": "أدخل عنوان العقار",
+
+    "submit_property": "أضف العقار إلى قاعدة البيانات",
     'language': 'ar',
     'labels_or': 'أو',
     'labels_login': 'تسجيل الدخول',
@@ -136,9 +224,55 @@ class Locales {
     'buttons_logout': 'تسجيل الخروج',
     'buttons_sign_in_fb': 'تسجيل الدخول عن طريق Facebook',
     'buttons_sign_in_google': 'تسجيل الدخول عن طريق Google',
+    'buttons_chat_on_whatsapp': 'تواصل عبر واتساب'
   };
   static const en_US = {
     'welcome': 'Welcome',
+    //bar items
+    'bar_label_1': 'Home',
+    'bar_label_2': 'Hot Deals',
+    'bar_label_3': 'My Offers',
+    'bar_label_4': 'Ask a Consultant',
+    //property
+    'button_search': 'Search',
+    'search_label_hint': 'Seacrh by name',
+    "category_damascus": "Damascus",
+    "category_aleppo": "Aleppo",
+    "category_lattakia": "Lattakia",
+    "category_homs": "Homs",
+    "category_tartous": "Tartous",
+    "category_idleb": "Idleb",
+    "category_sweidaa": "Sweidaa",
+    //property details
+    'property_details_title':'Property Details',
+    'label_features':'Main features',
+    'label_what_will_you_get':'What will you get',
+    //property manager
+    
+    "title_label": "Title",
+    "title_hint": "Enter the property title",
+
+    "description_label": "Description",
+    "description_hint": "Enter a short description",
+
+    "price_label": "Price",
+    "price_hint": "Enter the price",
+
+    "bedrooms_label": "Bedrooms",
+    "bedrooms_hint": "Enter number of bedrooms",
+
+    "bathrooms_label": "Bathrooms",
+    "bathrooms_hint": "Enter number of bathrooms",
+
+    "area_label": "Area",
+    "area_hint": "Enter property area in sqm",
+
+    "address_label": "Address",
+    "address_hint": "Enter the property address",
+
+    "submit_property": "Add Property to Database",
+
+
     'language': 'en',
     'labels_or': 'Or',
     'labels_login': 'Login',
@@ -194,5 +328,6 @@ class Locales {
     'buttons_logout': 'Logout',
     'buttons_sign_in_fb': 'Sign-in with Facebook',
     'buttons_sign_in_google': 'Sign-in with Google',
+    'buttons_chat_on_whatsapp':'Chat on whatsapp',
   };
 }
