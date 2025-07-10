@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'colors.dart';
+import 'package:my_house_app/app/core/theme/colors.dart';
 
 
 
@@ -12,31 +12,40 @@ class AppTheme {
   static ThemeData get lightTheme {
 
     return ThemeData(
+      //new edits
 
 
       colorScheme: ColorScheme.light(
         primary: AppColors.primary,
         secondary: AppColors.secondary,
         surface: AppColors.surface,
-        error: AppColors.orange,
+        error: AppColors.red,
+        // new edits
+        primaryContainer: Colors.white, 
+        onPrimaryContainer: Colors.black,       
 
 
 
 
       ),
       dividerColor: AppColors.surface,
-
-      scaffoldBackgroundColor: AppColors.background,
+      scaffoldBackgroundColor: AppColors.primary,
       fontFamily: primaryFont,
       textTheme: TextTheme(
         headlineLarge: TextStyle(fontSize: 24.r,  color: AppColors.white),
         headlineMedium: TextStyle(fontSize: 22.r, fontWeight: FontWeight.w600, color: AppColors.white),
         bodyLarge: TextStyle(fontSize: 18.r, color: AppColors.primary),
-        bodyMedium: TextStyle(fontSize: 16.r, color: AppColors.primary),
-        titleMedium:TextStyle(fontSize: 14.r, color: AppColors.background1,fontWeight: FontWeight.w600 ),
-        titleSmall: TextStyle(fontSize: 12.r, color: AppColors.background1,fontWeight: FontWeight.w400),
-        bodySmall: TextStyle(fontSize: 12.r, color: AppColors.white,fontWeight: FontWeight.w400),
-        labelLarge: TextStyle(fontSize: 16.r, fontWeight: FontWeight.bold, color: AppColors.primary),
+        bodyMedium: TextStyle(fontSize: 16.r, color: AppColors.secondaryfontcolor),
+        titleLarge:TextStyle(fontSize: 26.r, color: AppColors.fontcolor,fontWeight: FontWeight.bold ),
+
+        titleMedium:TextStyle(fontSize: 24.r, color: AppColors.fontcolor,fontWeight: FontWeight.w600 ),
+        titleSmall: TextStyle(fontSize: 17.r, color: AppColors.fontcolor,fontWeight: FontWeight.w900),
+        bodySmall: TextStyle(fontSize: 18.r, color: AppColors.secondaryfontcolor,fontWeight: FontWeight.w400),
+        // for numbers
+        labelLarge: TextStyle(fontSize: 26.r, fontWeight: FontWeight.bold, color: AppColors.numbersfontcolor),
+        labelMedium: TextStyle(fontSize: 26.r, fontWeight: FontWeight.bold, color:AppColors.secondaryfontcolor),
+        labelSmall: TextStyle(fontSize: 16.r, fontWeight: FontWeight.bold, color: AppColors.secondaryfontcolor),
+
       ),
       appBarTheme: AppBarTheme(
         color: AppColors.primary,
@@ -47,7 +56,7 @@ class AppTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.responsiveButtonColor,
-          foregroundColor: AppColors.surface,
+          foregroundColor: AppColors.fontcolor,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
           textStyle: TextStyle(fontSize: 16.r, fontWeight: FontWeight.bold),
@@ -57,12 +66,29 @@ class AppTheme {
         backgroundColor: AppColors.primary,
         foregroundColor: AppColors.surface,
       ),
+      //new edits
       cardTheme: CardTheme(
-        color: AppColors.surface,
-        shadowColor: AppColors.primary.withOpacity(0.2),
-        elevation: 4,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+      color: Colors.grey[200],
+      shadowColor: Colors.black12,
+      elevation: 4,
+      margin: EdgeInsets.all(8),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
       ),
+    ),
+    //new edits
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: Colors.grey[100],
+      elevation: 8,
+      selectedItemColor: Colors.black,
+      unselectedItemColor: Colors.black45,
+      selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+      unselectedLabelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+      type: BottomNavigationBarType.fixed,
+      showUnselectedLabels: true,
+    ),
+  
+  
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: AppColors.surface,
