@@ -32,6 +32,7 @@ class LocaleKeys {
   static const property_details_title = 'property_details_title';
   static const label_features = 'label_features';
   //property manager
+  static const manager_page_title = 'manager_page_title';
   static const title_label = 'title_label';
   static const title_hint = 'title_hint';
 
@@ -145,6 +146,7 @@ class Locales {
     'label_features': 'المزايا الرئيسية ',
     'label_what_will_you_get':'على ماذا ستحصل',
     //property manager
+    'manager_page_title': 'مدير العقارات',
     "title_label": "العنوان",
     "title_hint": "أدخل عنوان العقار",
 
@@ -248,6 +250,7 @@ class Locales {
     'label_features':'Main features',
     'label_what_will_you_get':'What will you get',
     //property manager
+    'manager_page_title': 'Property Manager',
     
     "title_label": "Title",
     "title_hint": "Enter the property title",
