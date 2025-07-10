@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:my_house_app/app/core/theme/colors.dart';
 
 class PropertyFeatures extends StatelessWidget {
@@ -17,7 +18,7 @@ class PropertyFeatures extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
          Text(
-          "Main Features",
+         'label_what_will_you_get'.tr,
            style: Theme.of(context).textTheme.titleMedium,
         ),
         const SizedBox(height: 6),
