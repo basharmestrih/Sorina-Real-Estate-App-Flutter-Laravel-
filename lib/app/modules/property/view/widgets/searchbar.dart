@@ -4,7 +4,6 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import 'package:my_house_app/app/core/theme/colors.dart';
-import 'package:my_house_app/app/core/theme/colors2.dart';
 import 'package:my_house_app/app/widgets/responsive_buttun.dart';
 
 class SearchBarWithButton extends StatelessWidget {
