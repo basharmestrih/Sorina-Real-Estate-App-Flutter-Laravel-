@@ -33,7 +33,7 @@ class SearchBarWithButton extends StatelessWidget {
               controller: controller,
               decoration:  InputDecoration(
                  fillColor: AppColors.lightGrey,
-                hintText: 'Search...',
+                hintText: 'search_label_hint'.tr,
                 prefixIcon: Icon(Icons.search),
                 border: InputBorder.none,
                 enabledBorder: InputBorder.none,
@@ -59,7 +59,7 @@ class SearchBarWithButton extends StatelessWidget {
                       ),
                     ),
                     buttonWidth: Get.width/4,
-                    child: Text( 'Search',),
+                    child: Text( 'button_search'.tr,),
                   ),
 
           // Search Button
