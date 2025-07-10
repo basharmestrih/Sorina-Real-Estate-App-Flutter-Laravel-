@@ -240,6 +240,27 @@ class AuthView extends GetView<AuthController> {
                     child: Text('buttons_sign_up'.tr, style: Theme.of(context).textTheme.bodyMedium),
                   ),
                 ),
+                  Container(
+                            margin:   EdgeInsets.only(top:33.h,left: 48.w,right: 48.w),
+                  child: ResponsiveButton(
+                    onPressed: () {
+                      Get.toNamed(Routes.HOME);
+                    },
+                    clickable: true,
+
+                    buttonStyle: ButtonStyle(
+
+
+                      shape: WidgetStatePropertyAll(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10.r)),
+                        ),
+                      ),
+                    ),
+                    buttonWidth: Get.width,
+                    child: Text('guest', style: Theme.of(context).textTheme.bodyMedium),
+                  ),
+                ),
               ],
             ),
           ),
