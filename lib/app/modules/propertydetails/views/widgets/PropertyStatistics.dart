@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Propertystatistics extends StatelessWidget {
   const Propertystatistics({super.key});
@@ -17,7 +18,7 @@ class Propertystatistics extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "What will you get",
+          'label_features'.tr,
           style: Theme.of(context).textTheme.titleMedium,
         ),
         const SizedBox(height: 12),
