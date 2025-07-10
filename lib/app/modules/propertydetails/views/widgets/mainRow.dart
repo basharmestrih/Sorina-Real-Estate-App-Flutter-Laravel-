@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_house_app/app/core/theme/colors2.dart';
 
 class TitlePriceRow extends StatelessWidget {
   final String title;
