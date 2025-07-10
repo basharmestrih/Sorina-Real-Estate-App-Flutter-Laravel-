@@ -6,6 +6,7 @@ import 'package:my_house_app/app/core/theme/colors.dart';
 import 'package:my_house_app/app/widgets/input_text_form_field.dart';
 import 'package:my_house_app/app/widgets/responsive_buttun.dart';
 import 'package:my_house_app/app/modules/homemanagement/view/widgets/Appbar.dart';
+import 'package:my_house_app/generated/locales.g.dart'; // Make sure this points to your LocaleKeys file
 
 class PropertyManager extends StatelessWidget {
   const PropertyManager({super.key});
@@ -18,57 +19,85 @@ class PropertyManager extends StatelessWidget {
       backgroundColor: AppColors.primary,
       appBar: CustomAppBar(),
       body: SingleChildScrollView(
-        padding: EdgeInsets.fromLTRB(10, 10, 40, 10),
+        padding: EdgeInsets.fromLTRB(10, 60, 40, 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             InputTextFormField(
-              hintText: 'Title',
+              labelTextAboveTextField: Text(
+                LocaleKeys.title_label.tr,
+                style: Theme.of(context).textTheme.titleSmall,
+              ),
+              hintText: LocaleKeys.title_hint.tr,
               obsecure: false,
               textEditingController: controller.titleController,
               width: 300.w,
             ),
-            SizedBox(height: 24.h),
+            SizedBox(height: 32.h),
             InputTextFormField(
-              hintText: 'Description',
+              labelTextAboveTextField: Text(
+                LocaleKeys.description_label.tr,
+                style: Theme.of(context).textTheme.titleSmall,
+              ),
+              hintText: LocaleKeys.description_hint.tr,
               obsecure: false,
               textEditingController: controller.descriptionController,
-               width: 300.w,
+              width: 300.w,
             ),
-            SizedBox(height: 24.h),
+            SizedBox(height: 32.h),
             InputTextFormField(
-              hintText: 'Price',
+              labelTextAboveTextField: Text(
+                LocaleKeys.price_label.tr,
+                style: Theme.of(context).textTheme.titleSmall,
+              ),
+              hintText: LocaleKeys.price_hint.tr,
               obsecure: false,
               textEditingController: controller.priceController,
-               width: 300.w,
+              width: 300.w,
             ),
-            SizedBox(height: 24.h),
+            SizedBox(height: 32.h),
             InputTextFormField(
-              hintText: 'Bedrooms',
+              labelTextAboveTextField: Text(
+                LocaleKeys.bedrooms_label.tr,
+                style: Theme.of(context).textTheme.titleSmall,
+              ),
+              hintText: LocaleKeys.bedrooms_hint.tr,
               obsecure: false,
               textEditingController: controller.bedroomsController,
-               width: 300.w,
+              width: 300.w,
             ),
-            SizedBox(height: 24.h),
+            SizedBox(height: 32.h),
             InputTextFormField(
-              hintText: 'Bathrooms',
+              labelTextAboveTextField: Text(
+                LocaleKeys.bathrooms_label.tr,
+                style: Theme.of(context).textTheme.titleSmall,
+              ),
+              hintText: LocaleKeys.bathrooms_hint.tr,
               obsecure: false,
               textEditingController: controller.bathroomsController,
-               width: 300.w,
+              width: 300.w,
             ),
-            SizedBox(height: 24.h),
+            SizedBox(height: 32.h),
             InputTextFormField(
-              hintText: 'Area',
+              labelTextAboveTextField: Text(
+                LocaleKeys.area_label.tr,
+                style: Theme.of(context).textTheme.titleSmall,
+              ),
+              hintText: LocaleKeys.area_hint.tr,
               obsecure: false,
               textEditingController: controller.areaController,
-               width: 300.w,
+              width: 300.w,
             ),
-            SizedBox(height: 24.h),
+            SizedBox(height: 32.h),
             InputTextFormField(
-              hintText: 'Address',
+              labelTextAboveTextField: Text(
+                LocaleKeys.address_label.tr,
+                style: Theme.of(context).textTheme.titleSmall,
+              ),
+              hintText: LocaleKeys.address_hint.tr,
               obsecure: false,
               textEditingController: controller.addressController,
-               width: 300.w,
+              width: 300.w,
             ),
           ],
         ),
@@ -89,7 +118,7 @@ class PropertyManager extends StatelessWidget {
             minimumSize: Size(double.infinity, 50.h),
           ),
           child: Text(
-            'Add Property to Database',
+            LocaleKeys.submit_property.tr,
             style: TextStyle(
               color: AppColors.fontcolor,
               fontWeight: FontWeight.bold,
