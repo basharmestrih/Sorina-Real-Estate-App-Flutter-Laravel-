@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_house_app/app/core/theme/colors.dart';
-import 'package:my_house_app/app/core/theme/colors2.dart';
 
 class PropertyFeatures extends StatelessWidget {
   const PropertyFeatures({super.key});
