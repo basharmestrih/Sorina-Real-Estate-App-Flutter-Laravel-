@@ -4,7 +4,7 @@ class ApiEndpoints {
 
   //Auth
   static const String login = '/api/login';
-  static const String signup = '/api/sign-up';
+  static const String signup = '/api/register';
 
 
 

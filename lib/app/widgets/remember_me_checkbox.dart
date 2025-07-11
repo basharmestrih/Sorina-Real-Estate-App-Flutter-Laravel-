@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:my_house_app/app/core/theme/colors.dart';
 
 
 class RememberMeCheckbox extends StatelessWidget {
@@ -17,16 +18,16 @@ RememberMeCheckbox({super.key, required this.isChecked, this.activeColor});
       
             checkColor: Theme.of(context).primaryColor,
             side: BorderSide(
-              color: activeColor ?? Theme.of(context).colorScheme.surface
+              color: activeColor ?? AppColors.numbersfontcolor
             ),
             value: isChecked.value,
             onChanged: (value) {
               isChecked.value = value!;
             },
-            activeColor: activeColor ?? Theme.of(context).colorScheme.surface,
+            activeColor: activeColor ?? AppColors.numbersfontcolor,
           ),
           Text('labels_remember_me'.tr,
-              style: Theme.of(context).textTheme.bodySmall),
+              style: Theme.of(context).textTheme.bodySmall!.copyWith(color: AppColors.numbersfontcolor)),
         ],
       ),
     ));

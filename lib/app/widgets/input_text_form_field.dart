@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../core/theme/colors.dart';
 import '../data/services/validator_service.dart';
 
 class InputTextFormField extends StatelessWidget {
@@ -92,7 +93,7 @@ class InputTextFormField extends StatelessWidget {
               ),
                 labelStyle: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 14.r),
               hintText: hintText,
-              hintStyle: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 14.r),
+              hintStyle: TextStyle(color: AppColors.numbersfontcolor, fontSize: 14.r),
               contentPadding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
               prefixIcon: prefixIcon,
               suffixIcon: suffixIcon,

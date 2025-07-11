@@ -40,7 +40,7 @@ class RegisterController extends GetxController {
       final response = await ApiService().postApi(
         url: ApiEndpoints.signup,
         body: {
-          'username': name,
+          'name': name,
           'email': email,
           'password': password,
           'password_confirmation': passwordConfirmation,
@@ -55,16 +55,13 @@ class RegisterController extends GetxController {
         if (status == true) {
           final data = body['data'];
 
-          // Add default fields if missing
-          data['is_admin'] = 0;
-          data['is_super_admin'] = 0;
-          data['email_verified_at'] = null;
-          data['profile_picture_path'] = null;
-          data['address'] = null;
-          data['phone_number'] = null;
 
           // Convert JSON to model
-          final user = UserModel.fromJson(data);
+          final accessToken = data['access_token'];
+          final userJson = data['user'];
+          userJson['token'] = accessToken;
+
+          final user = UserModel.fromJson(userJson);
 
           // Save token securely
           await tokenService.saveToken(user.token);

@@ -43,10 +43,14 @@ class AuthController extends GetxController {
         final message = body['message'];
 
         if (status == true) {
-          final userData = body['data'];
+          final data = body['data'];
 
           // Convert JSON to model
-          final user = UserModel.fromJson(userData);
+          final accessToken = data['access_token'];
+          final userJson = data['user'];
+          userJson['token'] = accessToken;
+
+          final user = UserModel.fromJson(userJson);
 
           // Save token securely
           await tokenService.saveToken(user.token);

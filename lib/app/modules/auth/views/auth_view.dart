@@ -59,7 +59,7 @@ class AuthView extends GetView<AuthController> {
           ),
           // Opacity Layer
           Container(
-            color: Theme.of(context).scaffoldBackgroundColor,
+            color: AppColors.secondary.withOpacity(0.4),
           ),
 
           Form(
@@ -68,25 +68,13 @@ class AuthView extends GetView<AuthController> {
 
               children: [
 
-                //Welcome to
-                Container(
-                  alignment: Alignment.center,
-                  height: 36.h,
-                  margin: EdgeInsets.only(top: 86.h, ).r,
-
-                  child: Text(
-                    'labels_welcome_to'.tr,
-
-                    style: Theme.of(context).textTheme.headlineLarge,
-                  ),
-                ),
 
 
                 //Logo
                 Container(
                   alignment: Alignment.center,
-                  height: 124.h,
-                  margin: EdgeInsets.only(  top:13.h ,left: 76.w,right: 75.61.w).r,
+                  height: 300.h,
+                  margin: EdgeInsets.only(  top:20.h ,left: 30.w,right: 30.w).r,
                   child: Image.asset(
                     'assets/Logo.png',
 
@@ -100,7 +88,7 @@ class AuthView extends GetView<AuthController> {
                 //Email
                 Container(
 
-                  margin:   EdgeInsets.only(top:129.h,left: 48.w,right: 48.w),
+                  margin:   EdgeInsets.only(top:70.h,left: 48.w,right: 48.w),
                   child: InputTextFormField(
 
 
@@ -108,7 +96,7 @@ class AuthView extends GetView<AuthController> {
 
                     errorStyle: TextStyle(height: 0, color: Theme.of(context).colorScheme.error),
 
-                    suffixIcon: Icon(Icons.mail, color: AppColors.primary),
+                    suffixIcon: Icon(Icons.mail, color: AppColors.numbersfontcolor),
                     obsecure: false,
                     hintText: 'hint_text_enter_your_email'.tr,
                     helper: Text(''),
@@ -166,7 +154,7 @@ class AuthView extends GetView<AuthController> {
                           },
                           child: Text(
                             'labels_forgot'.tr,
-                            style: Theme.of(context).textTheme.bodySmall,
+                            style: Theme.of(context).textTheme.bodySmall!.copyWith(color: AppColors.numbersfontcolor),
                           ),
                         ),
                       ),
@@ -198,7 +186,7 @@ class AuthView extends GetView<AuthController> {
                       ),
                     ),
                     buttonWidth: Get.width,
-                    child: Text('buttons_login'.tr, style: Theme.of(context).textTheme.bodyMedium),
+                    child: Text('buttons_login'.tr, style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: AppColors.numbersfontcolor)),
                   ),
                 )),
 
@@ -211,7 +199,7 @@ class AuthView extends GetView<AuthController> {
                     children: [
                       Text(
                         "labels_dont_have_an_account".tr,
-                        style: Theme.of(context).textTheme.bodySmall,
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(color: AppColors.numbersfontcolor),
                       ),
 
                     ],
@@ -237,7 +225,7 @@ class AuthView extends GetView<AuthController> {
                       ),
                     ),
                     buttonWidth: Get.width,
-                    child: Text('buttons_sign_up'.tr, style: Theme.of(context).textTheme.bodyMedium),
+                    child: Text('buttons_sign_up'.tr, style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: AppColors.numbersfontcolor)),
                   ),
                 ),
                   Container(
