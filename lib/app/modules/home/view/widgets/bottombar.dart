@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:my_house_app/app/core/theme/colors.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import '../../controllers/home_controller.dart';
 
@@ -28,8 +29,8 @@ class BottomNavBar extends StatelessWidget {
           child: SalomonBottomBar(
             currentIndex: controller.selectedIndex.value,
             onTap: controller.changeBody,
-            selectedItemColor: Colors.black,
-            unselectedItemColor: Colors.grey[400],
+            selectedItemColor: AppColors.black,
+            unselectedItemColor: AppColors.iconscolor,
             itemPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16), // Center text+icon
             items: [
               SalomonBottomBarItem(

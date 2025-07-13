@@ -4,9 +4,8 @@ class HomeModel {
   final String location;
   final String address;
   final String imgUrl;
-  final String? description;
+  final String description;
   final int price;
-
   final int? roomsNumber;
   final int? bathsNumber;
   final int? floorsNumber;
@@ -14,9 +13,9 @@ class HomeModel {
   final int? buildingAge;
 
   final List<String>? mainFeatures;
-  final bool? isFurnitured;
-  final bool? isRent;
-  final bool? isSell;
+  final bool isFurnitured;
+  final bool isRent;
+  final bool isSell;
 
   HomeModel({
     required this.id,
@@ -26,6 +25,9 @@ class HomeModel {
     required this.imgUrl,
     required this.description,
     required this.price,
+    required this.isFurnitured,
+    required this.isRent,
+    required this.isSell,
 
     this.roomsNumber,
     this.bathsNumber,
@@ -33,9 +35,9 @@ class HomeModel {
     this.groundDistance,
     this.buildingAge,
     this.mainFeatures,
-    this.isFurnitured,
-    this.isRent,
-    this.isSell,
+    
+    
+    
   });
 
   factory HomeModel.fromJson(Map<String, dynamic> json) {
@@ -45,7 +47,7 @@ class HomeModel {
     location: json['location']?.toString() ?? 'Unknown',
     address: json['address']?.toString() ?? 'Unknown',
     imgUrl: json['img_url']?.toString() ?? '', // You can use a placeholder image here
-    description: json['description']?.toString(),
+    description: json['description'].toString(),
     price: json["price"] ?? 0,
     roomsNumber: json['rooms_number'],
     bathsNumber: json['baths_number'],

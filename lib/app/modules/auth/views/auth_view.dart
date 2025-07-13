@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:my_house_app/app/widgets/input_text_form_field.dart';
 
 
 import '../../../core/theme/colors.dart';
@@ -12,7 +13,7 @@ import '../../../data/services/validator_service.dart';
 import '../../../routes/app_pages.dart';
 import '../../../widgets/remember_me_checkbox.dart';
 
-import '../../../widgets/input_text_form_field.dart';
+import '../../../widgets/input_text_form_field_with_label.dart';
 import '../../../widgets/responsive_buttun.dart';
 import '../controllers/auth_controller.dart';
 

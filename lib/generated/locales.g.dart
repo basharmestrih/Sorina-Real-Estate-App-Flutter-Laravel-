@@ -20,6 +20,7 @@ class LocaleKeys {
   //property
   static const button_search = 'button_search';
   static const search_label_hint ='search_label_hint';
+  static const category_all = 'category_all';
   static const category_damascus = 'category_damascus';
   static const category_aleppo = 'category_aleppo';
   static const category_lattakia = 'category_lattakia';
@@ -27,6 +28,9 @@ class LocaleKeys {
   static const category_tartous = 'category_tartous';
   static const category_idleb = 'category_idleb';
   static const category_sweidaa = 'category_sweidaa';
+  static const for_sale_category = 'for_sale_category';
+  static const for_rent_category = 'for_rent_category';
+  
   
   //property details
   static const property_details_title = 'property_details_title';
@@ -132,6 +136,7 @@ class Locales {
     //property
     'button_search': "بحث",
     'search_label_hint': "ابحث باستخدام الاسم",
+    'category_all': "الكل",
     
     "category_damascus": "دمشق",
     "category_aleppo": "حلب",
@@ -140,6 +145,8 @@ class Locales {
     "category_tartous": "طرطوس",
     "category_idleb": "إدلب",
     "category_sweidaa": "السويداء",
+    'for_sale_category': "للبيع",
+    'for_rent_category': "للأجار",
 
     //property details
     'property_details_title':'معلومات العقار',
@@ -238,6 +245,7 @@ class Locales {
     //property
     'button_search': 'Search',
     'search_label_hint': 'Seacrh by name',
+    'category_all': "All",
     "category_damascus": "Damascus",
     "category_aleppo": "Aleppo",
     "category_lattakia": "Lattakia",
@@ -245,6 +253,8 @@ class Locales {
     "category_tartous": "Tartous",
     "category_idleb": "Idleb",
     "category_sweidaa": "Sweidaa",
+    'for_sale_category': "For Sale",
+    'for_rent_category': "For Rent",
     //property details
     'property_details_title':'Property Details',
     'label_features':'Main features',

@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '../core/theme/colors.dart';
 import '../data/services/validator_service.dart';
 
-class InputTextFormField extends StatelessWidget {
+class InputTextFormFieldWithTitle extends StatelessWidget {
   final TextEditingController? textEditingController;
   final ValidatorType? validatorType;
   final InputDecoration? decoration;
@@ -24,7 +24,7 @@ class InputTextFormField extends StatelessWidget {
   final String? otherValueForValidation;
   final Widget? counter;
   final String? Function(String?)? validator;
-  InputTextFormField({
+  InputTextFormFieldWithTitle({
     super.key,
     this.textEditingController,
     this.validatorType,
@@ -48,85 +48,83 @@ class InputTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: width, // Responsive width
-      height: height, // Responsive height
-      margin: margin , // Responsive margin
-      padding: padding,  // Responsive padding
-      child: TextFormField(
-        
-        
-       
+return Container(
+  width: width,
+  height: height,
+  margin: margin,
+  padding: padding,
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      if (labelTextAboveTextField != null) ...[
+        labelTextAboveTextField!,
+        SizedBox(height: 8.h),
+      ],
+      TextFormField(
         controller: textEditingController,
         obscureText: obsecure,
         keyboardType: validatorType == ValidatorType.PhoneNumber ||
-            validatorType == ValidatorType.Number
+                validatorType == ValidatorType.Number
             ? TextInputType.number
             : TextInputType.text,
-
-
-
         decoration: decoration ??
-
             InputDecoration(
-              
-
-
               errorStyle: errorStyle,
               filled: true,
               icon: icon,
               fillColor: Theme.of(context).colorScheme.surface,
-
-
               helper: helper,
               counter: counter,
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10.r), // Responsive border radius
+                borderRadius: BorderRadius.circular(10.r),
                 borderSide: BorderSide.none,
               ),
               enabledBorder: OutlineInputBorder(
-
                 borderRadius: BorderRadius.circular(10.r),
-                borderSide: BorderSide(color: Theme.of(context).colorScheme.primary, width: 1),
+                borderSide: BorderSide(
+                    color: Theme.of(context).colorScheme.secondary, width: 3),
               ),
-              focusedBorder:  OutlineInputBorder(
-
+              focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10.r),
-                borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary, width: 1),
+                borderSide: BorderSide(
+                    color: Theme.of(context).colorScheme.secondary, width: 1),
               ),
-                labelStyle: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 14.r),
+              labelStyle: TextStyle(
+                  color: Theme.of(context).colorScheme.primary, fontSize: 14.r),
               hintText: hintText,
-              hintStyle: TextStyle(color: AppColors.numbersfontcolor, fontSize: 14.r),
-              contentPadding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
+              hintStyle:
+                  TextStyle(color: AppColors.numbersfontcolor, fontSize: 14.r),
+              contentPadding:
+                  EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
               prefixIcon: prefixIcon,
               suffixIcon: suffixIcon,
-
             ),
-
-        validator: validator??(value) {
-          switch (validatorType) {
-            case ValidatorType.Name:
-              return validationController.validateName(value!);
-            case ValidatorType.Email:
-              return validationController.validateEmail(value!);
-            case ValidatorType.Password:
-              return validationController.validatePassword(value!);
-            case ValidatorType.LoginPassword:
-              return validationController.validateLoginPassword(value!);
-            case ValidatorType.PhoneNumber:
-              return validationController.validatePhoneNumber(value!);
-            case ValidatorType.Number:
-              return validationController.validateNumber(value!);
-            case ValidatorType.Code:
-              return validationController.validateResetCode(value!);
-
-            default:
-              return validationController.validateDefault(value!);
-          }
-        },
+        validator: validator ??
+            (value) {
+              switch (validatorType) {
+                case ValidatorType.Name:
+                  return validationController.validateName(value!);
+                case ValidatorType.Email:
+                  return validationController.validateEmail(value!);
+                case ValidatorType.Password:
+                  return validationController.validatePassword(value!);
+                case ValidatorType.LoginPassword:
+                  return validationController.validateLoginPassword(value!);
+                case ValidatorType.PhoneNumber:
+                  return validationController.validatePhoneNumber(value!);
+                case ValidatorType.Number:
+                  return validationController.validateNumber(value!);
+                case ValidatorType.Code:
+                  return validationController.validateResetCode(value!);
+                default:
+                  return validationController.validateDefault(value!);
+              }
+            },
       ),
-    );
-  
+    ],
+  ),
+);
+
   
   }
 }

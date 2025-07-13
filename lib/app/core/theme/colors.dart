@@ -9,6 +9,8 @@ class AppColors {
   static const fontcolor = Colors.black;
   static const secondaryfontcolor =Colors.grey;
   static const numbersfontcolor =Color(0xFF1E88E5);
+  static const iconscolor =Color.fromARGB(0, 0, 0, 0);
+
 
 
   // static const Color surface = Color.fromRGBO(252, 253, 253, 1);

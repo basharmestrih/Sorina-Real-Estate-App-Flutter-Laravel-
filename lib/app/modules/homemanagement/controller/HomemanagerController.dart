@@ -1,10 +1,12 @@
+import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'dart:convert';
+import 'package:http_parser/http_parser.dart';
+import 'package:my_house_app/app/data/services/token_service.dart';
 
 class PropertyManagerController extends GetxController {
-  // Controllers for each input
   final titleController = TextEditingController();
   final descriptionController = TextEditingController();
   final priceController = TextEditingController();
@@ -12,50 +14,77 @@ class PropertyManagerController extends GetxController {
   final bathroomsController = TextEditingController();
   final areaController = TextEditingController();
   final addressController = TextEditingController();
+  final locationController = TextEditingController();
+  final floorsNumberController = TextEditingController();
+  final groundDistanceController = TextEditingController();
+  final buildingAgeController = TextEditingController();
+  final feature1Controller = TextEditingController();
+  final feature2Controller = TextEditingController();
+  final feature3Controller = TextEditingController();
 
-  // Post property to API
+  File? selectedImage; // You need to let user pick an image and assign it here
+
   Future<void> submitProperty() async {
-    final url = Uri.parse('http://127.0.0.1:8000/api/houses');
+    final url = Uri.parse('http://10.0.2.2:8000/api/houses');
+    final Admintoken = '4|Bkeo1INlmFktUQdiXycKpHaxFpxVrXrv8tmFVBm7672b9846';
 
-    // Prepare data
-    final data = {
-      'title': titleController.text.trim(),
-      'description': descriptionController.text.trim(),
-      'price': priceController.text.trim(),
-      'bedrooms': bedroomsController.text.trim(),
-      'bathrooms': bathroomsController.text.trim(),
-      'area': areaController.text.trim(),
-      'address': addressController.text.trim(),
-    };
+   
 
+    final request = http.MultipartRequest('POST', url);
+    request.headers['Authorization'] = 'Bearer $Admintoken';
+    request.headers['Accept'] = 'application/json';
+
+    request.fields['title'] = titleController.text.trim();
+    request.fields['description'] = descriptionController.text.trim();
+    request.fields['price'] = priceController.text.trim();
+    request.fields['rooms_number'] = bedroomsController.text.trim();
+    request.fields['baths_number'] = bathroomsController.text.trim();
+    request.fields['area'] = areaController.text.trim();
+    request.fields['address'] = addressController.text.trim();
+    request.fields['location'] = locationController.text.trim();
+    request.fields['floors_number'] = floorsNumberController.text.trim();
+    request.fields['ground_distance'] = groundDistanceController.text.trim();
+    request.fields['building_age'] = buildingAgeController.text.trim();
+
+    request.fields['main_features[]'] = feature1Controller.text.trim();
+    request.fields['main_features[]'] = feature2Controller.text.trim();
+    request.fields['main_features[]'] = feature3Controller.text.trim();
+
+   
     try {
-      final response = await http.post(
-        url,
-        headers: {'Content-Type': 'application/json'},
-        body: json.encode(data),
-      );
+      final streamedResponse = await request.send();
+      final response = await http.Response.fromStream(streamedResponse);
 
       if (response.statusCode == 200 || response.statusCode == 201) {
         Get.snackbar('Success', 'Property added successfully');
-        // Optionally clear inputs after success
-        titleController.clear();
-        descriptionController.clear();
-        priceController.clear();
-        bedroomsController.clear();
-        bathroomsController.clear();
-        areaController.clear();
-        addressController.clear();
+        clearFields();
       } else {
-        Get.snackbar('Error', 'Failed to add property: ${response.body}');
+        Get.snackbar('Error', 'Failed: ${response.body}');
       }
     } catch (e) {
-      Get.snackbar('Error', 'Something went wrong: $e');
+      Get.snackbar('Error', 'Exception: $e');
     }
+  }
+
+  void clearFields() {
+    titleController.clear();
+    descriptionController.clear();
+    priceController.clear();
+    bedroomsController.clear();
+    bathroomsController.clear();
+    areaController.clear();
+    addressController.clear();
+    locationController.clear();
+    floorsNumberController.clear();
+    groundDistanceController.clear();
+    buildingAgeController.clear();
+    feature1Controller.clear();
+    feature2Controller.clear();
+    feature3Controller.clear();
   }
 
   @override
   void onClose() {
-    // Dispose controllers when done
     titleController.dispose();
     descriptionController.dispose();
     priceController.dispose();
@@ -63,6 +92,13 @@ class PropertyManagerController extends GetxController {
     bathroomsController.dispose();
     areaController.dispose();
     addressController.dispose();
+    locationController.dispose();
+    floorsNumberController.dispose();
+    groundDistanceController.dispose();
+    buildingAgeController.dispose();
+    feature1Controller.dispose();
+    feature2Controller.dispose();
+    feature3Controller.dispose();
     super.onClose();
   }
 }

@@ -8,17 +8,21 @@ class PropertyController extends GetxController {
 
   @override
   void onInit() {
+    super.onInit(); // ✅ should be before fetch
     fetchHouses();
-    super.onInit();
   }
 
-  void fetchHouses() async {
-    try {
-      isLoading(true);
-      var houses = await HomeService.fetchHouses();
-      houseList.assignAll(houses);
-    } finally {
-      isLoading(false);
-    }
+ void fetchHouses({String? location}) async {
+  try {
+    isLoading.value = true;
+    final houses = await ProperttService.fetchHouses(location: location);
+    houseList.assignAll(houses);
+  } catch (e) {
+    Get.snackbar('Error', 'Failed to load houses');
+    print('Fetch error: $e');
+  } finally {
+    isLoading.value = false;
   }
+}
+
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import '../../controllers/home_controller.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BottomNavBar extends StatelessWidget {
   final HomeController controller = Get.find();
@@ -9,7 +10,7 @@ class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() => Container(
-          height: 90, // Increased to suit larger icons
+          height: 80.h, // Increased to suit larger icons
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8), // Slight vertical padding
           decoration: BoxDecoration(
             color: Colors.white,
@@ -30,7 +31,7 @@ class BottomNavBar extends StatelessWidget {
             onTap: controller.changeBody,
             selectedItemColor: Colors.black,
             unselectedItemColor: Colors.grey[400],
-            itemPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16), // Center text+icon
+            itemPadding:  EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w), // Center text+icon
             items: [
               SalomonBottomBarItem(
                 icon: const Icon(Icons.home, size: 35),

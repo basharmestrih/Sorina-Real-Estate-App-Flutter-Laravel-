@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:my_house_app/app/core/theme/colors.dart';
 import 'package:my_house_app/app/data/models/category_model.dart';
 import 'package:my_house_app/app/modules/home/controllers/home_controller.dart';
 import 'package:my_house_app/app/modules/property/controllers/propertycontroller.dart';
@@ -33,72 +35,104 @@ Widget build(BuildContext context) {
     children: [
       // ✅ Search Bar
       Padding(
-        padding: const EdgeInsets.fromLTRB(20, 70, 20, 20),
+        padding: EdgeInsets.symmetric(horizontal:20.w,vertical: 25.h ),
         child: SearchBarWithButton(
           controller: _searchController,
           onSearch: _onSearchPressed,
         ),
       ),
 
-      const SizedBox(height: 20),
+      //const SizedBox(height: 20),
 
-      // ✅ Chips Row with Padding
+     
       Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding:  EdgeInsets.fromLTRB(5.w, 5.h, 5.w, 10.h),
         child: SizedBox(
-          height: 40,
+          height: 45.h,
           child:ListView.separated(
-  scrollDirection: Axis.horizontal,
-  itemCount: CategoryModel.categories.length,
-  separatorBuilder: (_, __) => const SizedBox(width: 8),
-  itemBuilder: (context, index) {
-    return CategoryChip(
-      label: CategoryModel.categories[index],
-      isSelected: index == selectedIndex,
-      onTap: () {
-        setState(() {
-          selectedIndex = index;
-        });
-      },
-    );
-  },
-),
+            scrollDirection: Axis.horizontal,
+            itemCount: CategoryModel.categories.length,
+            separatorBuilder: (_, __) =>  SizedBox(width: 8.w),
+            itemBuilder: (context, index) {
+              return CategoryChip(
+            label: CategoryModel.categories[index],
+            isSelected: index == selectedIndex,
+            onTap: () {
+              setState(() {
+                selectedIndex = index;
+              });
 
-        ),
-      ),
+              final selectedCity = CategoryModel.categories[index];
+              final cityToPass = selectedCity.toLowerCase() == 'all' ? null : selectedCity;
+              controller.fetchHouses(location: cityToPass);
+            },
+          );
 
-      const SizedBox(height: 16),
-      
+            },
+          ),
 
-      // ✅ Property Cards List with Padding
-      Expanded(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child:ListView.builder(
-  itemCount: controller.houseList.length,
-  itemBuilder:(_, index) {
-    //final home = exampleHomes[index]; // just use first 3 elements
-     final home = controller.houseList[index];
-     if (controller.isLoading.value) {
-          return Center(child: CircularProgressIndicator());
-        }
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 16),
-      child: PropertyCard(
-        imageUrl: home.imgUrl,
-        location: home.location,
-        address: home.address,
-        name: home.title,
-        price: '\$${home.price}',
-      ),
-    );
-  },
-),
+                  ),
+                ),
 
-        ),
-      ),
-    ],
-  );
-}
+                //const SizedBox(height: 16),
+                
 
-}
+                // ✅ Property Cards List with Padding
+          Expanded(
+            child: Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 20.w),
+              child: Obx(() {
+                if (controller.isLoading.value) {
+                  print('loading');
+                  return Center(
+            child: SizedBox(
+              width: 100.w,
+              height: 125.h,
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(AppColors.secondary),
+              ),
+            ),
+          );
+
+                }
+
+                if (controller.houseList.isEmpty) {
+                  return Center(child: Text("No houses found"));
+                }
+
+                return ListView.builder(
+                  itemCount: controller.houseList.length,
+                  itemBuilder: (_, index) {
+                    final home = controller.houseList[index];
+                    return Padding(
+                      padding:  EdgeInsets.only(bottom: 16.h),
+                      child: PropertyCard(
+                        imageUrl: home.imgUrl,
+                        location: home.location,
+                        address: home.address,
+                        name: home.title,
+                        roomsNumber: home.roomsNumber,
+                        bathsNumber: home.bathsNumber,
+                        floorsNumber: home.floorsNumber,
+                        groundDistance: home.groundDistance,
+                        buildingAge: home.buildingAge,
+                        mainFeatures: home.mainFeatures,
+                        description: home.description,
+                        price: '\$${home.price}',
+                        isSell: home.isSell,
+                        isRent: home.isRent,
+                        isFurnitured: home.isFurnitured,
+                      ),
+                    );
+                  },
+                );
+              }),
+            ),
+          ),
+
+            
+              ],
+            );
+          }
+
+          }

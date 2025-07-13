@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:my_house_app/app/widgets/input_text_form_field.dart';
 
 
 
@@ -12,7 +13,7 @@ import '../../../core/util/device_utils.dart';
 
 
 import '../../../data/services/validator_service.dart';
-import '../../../widgets/input_text_form_field.dart';
+import '../../../widgets/input_text_form_field_with_label.dart';
 import '../../../widgets/responsive_buttun.dart';
 import '../controllers/register_controller.dart';
 

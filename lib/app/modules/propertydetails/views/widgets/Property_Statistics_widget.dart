@@ -2,23 +2,36 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Propertystatistics extends StatelessWidget {
-  const Propertystatistics({super.key});
+  final int roomsNumber;
+  final int bathsNumber;
+  final int floorsNumber;
+  final int groundDistance;
+  final int buildingAge;
+
+  const Propertystatistics({
+    super.key,
+    required this.roomsNumber,
+    required this.bathsNumber,
+    required this.floorsNumber,
+    required this.groundDistance,
+    required this.buildingAge,
+  });
 
   @override
   Widget build(BuildContext context) {
     final features = [
-      {'icon': Icons.bed, 'label': '4 Rooms'},
-      {'icon': Icons.bathtub, 'label': '2 Bathrooms'},
-      {'icon': Icons.home_filled, 'label': '2 Floors'},
-      {'icon': Icons.square_foot, 'label': '230 m²'},
-      {'icon': Icons.calendar_today, 'label': '3 Years ago'},
+      {'icon': Icons.bed, 'label': '$roomsNumber Rooms'},
+      {'icon': Icons.bathtub, 'label': '$bathsNumber Bathrooms'},
+      {'icon': Icons.home_filled, 'label': '$floorsNumber Floors'},
+      {'icon': Icons.square_foot, 'label': '$groundDistance m²'},
+      {'icon': Icons.calendar_today, 'label': '$buildingAge Years ago'},
     ];
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'label_features'.tr,
+          'label_what_will_you_get'.tr,
           style: Theme.of(context).textTheme.titleMedium,
         ),
         const SizedBox(height: 12),
@@ -31,9 +44,8 @@ class Propertystatistics extends StatelessWidget {
             itemBuilder: (context, index) {
               final item = features[index];
               return FeatureCard(
-               icon: item['icon'] as IconData,
-               label: item['label'] as String,
-
+                icon: item['icon'] as IconData,
+                label: item['label'] as String,
               );
             },
           ),
@@ -42,6 +54,7 @@ class Propertystatistics extends StatelessWidget {
     );
   }
 }
+
 
 class FeatureCard extends StatelessWidget {
   final IconData icon;

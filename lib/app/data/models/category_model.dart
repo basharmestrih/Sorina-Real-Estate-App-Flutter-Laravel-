@@ -3,6 +3,7 @@ import 'package:my_house_app/generated/locales.g.dart'; // adjust if needed
 
 class CategoryModel {
   static const List<String> _keys = [
+    LocaleKeys.category_all,
     LocaleKeys.category_damascus,
     LocaleKeys.category_aleppo,
     LocaleKeys.category_lattakia,

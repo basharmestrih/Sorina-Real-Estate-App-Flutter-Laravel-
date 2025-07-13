@@ -13,6 +13,18 @@ class PropertyCard extends StatelessWidget {
    final String address;
   final String name;
   final String price;
+  final String description;
+    final bool isSell;
+    final bool isRent;
+    final bool isFurnitured;
+
+  final int? roomsNumber;
+  final int? bathsNumber;
+  final int? floorsNumber;
+  final int? groundDistance;
+  final int? buildingAge;
+  final List<String>? mainFeatures;
+
 
   const PropertyCard({
     required this.imageUrl,
@@ -20,10 +32,12 @@ class PropertyCard extends StatelessWidget {
     required this.address,
     required this.name,
     required this.price,
+    required this.description, required this.roomsNumber, required this.bathsNumber, required this.floorsNumber, this.groundDistance, this.buildingAge, this.mainFeatures, required this.isSell, required this.isRent, required this.isFurnitured
   });
 
  @override
 Widget build(BuildContext context) {
+
   return Card(
     clipBehavior: Clip.antiAlias,
     child: Column(
@@ -35,33 +49,35 @@ Widget build(BuildContext context) {
             Image.network(
               imageUrl,
               width: double.infinity,
-              height: 250,
+              height: 250.h,
               fit: BoxFit.cover,
             ),
-            Positioned(
-              top: 12,
-              right: 4,
-              child: Container(
-                height: 40,
-                width: 70,
-                decoration: const BoxDecoration(
-                  color: AppColors.secondary,
-                  shape: BoxShape.circle,
-                ),
-                padding: const EdgeInsets.all(8),
-                child: const Icon(
-                  Icons.bookmark,
-                  color: Colors.black,
-                  size: 20,
-                ),
+           Positioned(
+            top: 12.h,
+            right: 12.w,
+            child: Container(
+              padding:  EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.secondary, // Secondary color
+                borderRadius: BorderRadius.circular(8), // Square with slight rounding
+              ),
+              child: Text(
+                isSell
+                    ? 'for_sale_category'.tr
+                    : isRent
+                        ? 'for_rent_category'.tr
+                        : 'Null',
+                style: Theme.of(context).textTheme.titleSmall
               ),
             ),
+          ),
+
           ],
         ),
 
         // 📝 Info Section
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -75,15 +91,15 @@ Widget build(BuildContext context) {
                     children: [
                       Row(
                         children: [
-                          Icon(Icons.location_on_outlined, size: 25, color: Colors.grey[600]),
-                          const SizedBox(width: 4),
+                          Icon(Icons.location_on_outlined, size: 25.sp, color: AppColors.black,),
+                           SizedBox(width: 4.w),
                           Text(
                             location,
                            style: Theme.of(context).textTheme.labelMedium
                           ),
                         ],
                       ),
-                      SizedBox(height: 5,),
+                      SizedBox(height: 5.h,),
                      Row(
                         children: [
                           Column(
@@ -94,9 +110,9 @@ Widget build(BuildContext context) {
                                 style: Theme.of(context).textTheme.labelSmall
                               
                               ),
-                              SizedBox(height: 3,),
+                              SizedBox(height: 3.h,),
                                Text(
-                                '4 Rooms, 3 Kitchens, Deluxe Design',
+                                '$roomsNumber Rooms, $groundDistance m², ${floorsNumber} Floor',
                                 style: Theme.of(context).textTheme.labelSmall
                               
                               ),
@@ -108,7 +124,7 @@ Widget build(BuildContext context) {
                   ),
                   Column(
                     children: [
-                      const SizedBox(height: 5),
+                       SizedBox(height: 5.h),
                       Text(
                         price,
                         style: Theme.of(context).textTheme.labelLarge,
@@ -121,26 +137,42 @@ Widget build(BuildContext context) {
                   ),
                 ],
               ),
-              SizedBox(height: 12,),
+              SizedBox(height: 6.h,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     name,
                
-                    style: Theme.of(context).textTheme.titleLarge,
+                    style: Theme.of(context).textTheme.titleMedium,
                     
                   ),
 
                    ResponsiveButton(
-                    buttonHeight:Get.height/20,
+                    buttonHeight: 50.h,
                     onPressed: () {
-                       Get.toNamed(Routes.PROPERTYDETAILS);
-                      
-                    },
+                    Get.toNamed(
+                      Routes.PROPERTYDETAILS,
+                     arguments: {
+                  'imgUrl': imageUrl,
+                  'location': location,
+                  'address': address,
+                  'title': name,
+                  'price': price,
+                  'description': description,
+                  'roomsNumber': roomsNumber,
+                  'bathsNumber': bathsNumber,
+                  'floorsNumber': floorsNumber,
+                  'groundDistance': groundDistance,
+                  'buildingAge': buildingAge,
+                  'mainFeatures': mainFeatures,
+                  'isSell': isSell,
+                  'isRent': isRent,
+                  'isFurnitured': isFurnitured,
+                },
+                    );
+                  },
                     clickable: true,
-
-                    
                     buttonWidth: Get.width/3,
                     child: Text( 'Contact Seller', style: Theme.of(context).textTheme.titleSmall,),
                   ),

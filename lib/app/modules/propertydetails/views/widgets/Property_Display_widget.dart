@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class PropertyGallery extends StatelessWidget {
-  const PropertyGallery({super.key});
+  const PropertyGallery({super.key, required this.imageUrl});
+  final String imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class PropertyGallery extends StatelessWidget {
       },
       blendMode: BlendMode.dstIn,
       child: Image.network(
-        'https://tse2.mm.bing.net/th/id/OIP.b7ibTjl2QGU1MNTFyeV-FAHaE8?rs=1&pid=ImgDetMain&o=7&rm=3',
+        imageUrl,
         height: 400,
         width: double.infinity,
         fit: BoxFit.cover,
