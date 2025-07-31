@@ -51,7 +51,7 @@ class AuthView extends GetView<AuthController> {
               image: DecorationImage(
                 image: AssetImage(
                   DeviceUtils.isPhone()
-                      ? 'assets/backgrounds/phone_background.jpeg'
+                      ? 'assets/images/authphoto.jpg'
                       : 'assets/backgrounds/tablet_background.jpeg',
                 ),
                 fit: BoxFit.fitHeight,
@@ -60,7 +60,7 @@ class AuthView extends GetView<AuthController> {
           ),
           // Opacity Layer
           Container(
-            color: AppColors.secondary.withOpacity(0.4),
+            color: AppColors.grey.withOpacity(0.45),
           ),
 
           Form(
@@ -97,7 +97,7 @@ class AuthView extends GetView<AuthController> {
 
                     errorStyle: TextStyle(height: 0, color: Theme.of(context).colorScheme.error),
 
-                    suffixIcon: Icon(Icons.mail, color: AppColors.numbersfontcolor),
+                    suffixIcon: Icon(Icons.mail, color: AppColors.fontcolor),
                     obsecure: false,
                     hintText: 'hint_text_enter_your_email'.tr,
                     helper: Text(''),
@@ -155,7 +155,7 @@ class AuthView extends GetView<AuthController> {
                           },
                           child: Text(
                             'labels_forgot'.tr,
-                            style: Theme.of(context).textTheme.bodySmall!.copyWith(color: AppColors.numbersfontcolor),
+                            style: Theme.of(context).textTheme.bodySmall,
                           ),
                         ),
                       ),
@@ -187,20 +187,41 @@ class AuthView extends GetView<AuthController> {
                       ),
                     ),
                     buttonWidth: Get.width,
-                    child: Text('buttons_login'.tr, style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: AppColors.numbersfontcolor)),
+                    child: Text('buttons_login'.tr, style: Theme.of(context).textTheme.labelSmall!.copyWith(color: AppColors.fontcolor)),
                   ),
                 )),
+                       Container(
+                            margin:   EdgeInsets.only(top:33.h,left: 48.w,right: 48.w),
+                  child: ResponsiveButton(
+                    onPressed: () {
+                      Get.toNamed(Routes.HOME);
+                    },
+                    clickable: true,
+
+                    buttonStyle: ButtonStyle(
+
+
+                      shape: WidgetStatePropertyAll(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10.r)),
+                        ),
+                      ),
+                    ),
+                    buttonWidth: Get.width,
+                    child: Text('guest_button'.tr, style: Theme.of(context).textTheme.labelSmall!.copyWith(color: AppColors.fontcolor)),
+                  ),
+                ),
 
 
 
                 Container(
-                  margin:   EdgeInsets.only(top:71.h,),
+                  margin:   EdgeInsets.only(top:25.h,),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         "labels_dont_have_an_account".tr,
-                        style: Theme.of(context).textTheme.bodySmall!.copyWith(color: AppColors.numbersfontcolor),
+                        style: Theme.of(context).textTheme.bodySmall,
                       ),
 
                     ],
@@ -208,7 +229,7 @@ class AuthView extends GetView<AuthController> {
                 ),
 
 
-                Container(
+                /*Container(
                             margin:   EdgeInsets.only(top:33.h,left: 48.w,right: 48.w),
                   child: ResponsiveButton(
                     onPressed: () {
@@ -228,12 +249,13 @@ class AuthView extends GetView<AuthController> {
                     buttonWidth: Get.width,
                     child: Text('buttons_sign_up'.tr, style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: AppColors.numbersfontcolor)),
                   ),
-                ),
-                  Container(
+                ),*/
+           
+                 /*Container(
                             margin:   EdgeInsets.only(top:33.h,left: 48.w,right: 48.w),
                   child: ResponsiveButton(
                     onPressed: () {
-                      Get.toNamed(Routes.HOME);
+                      Get.toNamed(Routes.PROPERTYMANAGER);
                     },
                     clickable: true,
 
@@ -247,9 +269,9 @@ class AuthView extends GetView<AuthController> {
                       ),
                     ),
                     buttonWidth: Get.width,
-                    child: Text('guest', style: Theme.of(context).textTheme.bodyMedium),
+                    child: Text('Add', style: Theme.of(context).textTheme.bodyMedium),
                   ),
-                ),
+                ),*/
               ],
             ),
           ),

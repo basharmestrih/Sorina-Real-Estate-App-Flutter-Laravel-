@@ -68,40 +68,45 @@ class InputTextFormField extends StatelessWidget {
 
         decoration: decoration ??
 
-            InputDecoration(
-              
+       InputDecoration(
+  errorStyle: errorStyle,
+  filled: true,
+  icon: icon,
+  fillColor: Colors.transparent.withOpacity(0.2),
 
+  helper: helper,
+  counter: counter,
 
-              errorStyle: errorStyle,
-              filled: true,
-              icon: icon,
-              fillColor: Theme.of(context).colorScheme.surface,
+  border: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(10.r),
+    borderSide: BorderSide.none,
+  ),
+  enabledBorder: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(10.r),
+    borderSide: BorderSide.none,
+  ),
+  focusedBorder: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(10.r),
+    borderSide: BorderSide(
+      color: AppColors.secondary,
+      width: 1.5,
+    ),
+  ),
 
+  labelStyle: TextStyle(
+    color: Theme.of(context).colorScheme.primary,
+    fontSize: 14.r,
+  ),
+  hintText: hintText,
+  hintStyle: TextStyle(
+    color: AppColors.fontcolor,
+    fontSize: 14.r,
+  ),
+  contentPadding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
+  prefixIcon: prefixIcon,
+  suffixIcon: suffixIcon,
+),
 
-              helper: helper,
-              counter: counter,
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10.r), // Responsive border radius
-                borderSide: BorderSide.none,
-              ),
-              enabledBorder: OutlineInputBorder(
-
-                borderRadius: BorderRadius.circular(10.r),
-                borderSide: BorderSide(color: Theme.of(context).colorScheme.primary, width: 1),
-              ),
-              focusedBorder:  OutlineInputBorder(
-
-                borderRadius: BorderRadius.circular(10.r),
-                borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary, width: 1),
-              ),
-                labelStyle: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 14.r),
-              hintText: hintText,
-              hintStyle: TextStyle(color: AppColors.numbersfontcolor, fontSize: 14.r),
-              contentPadding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
-              prefixIcon: prefixIcon,
-              suffixIcon: suffixIcon,
-
-            ),
 
         validator: validator??(value) {
           switch (validatorType) {

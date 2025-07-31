@@ -1,31 +1,112 @@
-   import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:my_house_app/app/modules/home/views/widgets/bottombar.dart' show BottomNavBar;
+import 'package:get/get_core/src/get_main.dart';
+import 'package:my_house_app/app/core/theme/colors.dart';
+import 'package:my_house_app/app/modules/home/views/widgets/advertise_card.dart';
+import 'package:my_house_app/app/modules/home/views/widgets/consultant_card.dart';
+import 'package:my_house_app/app/modules/home/views/widgets/section_title.dart';
+import 'package:my_house_app/app/modules/home/views/widgets/service_card.dart';
 import 'package:my_house_app/app/modules/property/controllers/propertycontroller.dart';
-import 'package:my_house_app/app/modules/property/view/property.dart';
-import '../controllers/home_controller.dart';
+import 'package:my_house_app/app/modules/property/view/widgets/propertycard.dart';
+import 'package:my_house_app/generated/locales.g.dart';
 
 class HomeView extends StatelessWidget {
+   HomeView({super.key});
+  final controller = Get.find<PropertyController>();
   
-  final HomeController controller = Get.find();
-
-
-  final List<Widget> bodies = [
-    PropertyView(),
-    //ProfileView(),
-  ];
 
   @override
   Widget build(BuildContext context) {
-
-    return Scaffold(
-     
-      //appBar: AppBar(title: Text('GetX Home Page')),
-      body: Obx(() => bodies[controller.selectedIndex.value]),
-            bottomNavigationBar: BottomNavBar(),
-
     
-      );
-    
+    return SingleChildScrollView(
+      padding: EdgeInsets.all(16.w),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Top advertising card
+          AdvertiseCard(),
+      
+          SizedBox(height: 24.h),
+
+          // Section title
+          SectionTitle(title: LocaleKeys.ourServices.tr),
+
+
+          SizedBox(height: 16.h),
+
+          // Three service cards in a row
+          SizedBox(
+            height: 180.h,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children:  [
+                Expanded(child: ServiceCard(title: LocaleKeys.propertiesForSale.tr, icon: Icons.sell, imgUrl: 'assets/images/sale2-photo.jpg',)),
+                SizedBox(width: 12),
+                Expanded(child: ServiceCard(title: LocaleKeys.propertiesForRent.tr, icon: Icons.home_work_outlined, imgUrl: 'assets/images/rent2-photo.jpg',)),
+              ],
+            ),
+          ),
+       
+            SizedBox(height: 32.h),
+
+          // New full-width image card with button
+          ConsultantCard(),
+             SizedBox(height: 24.h),
+              // Section title
+          SectionTitle(title: LocaleKeys.latestAddedProperties.tr),
+          SizedBox(height: 16.h),
+
+           Obx(() {
+             if (controller.isLoading.value) {
+               return Center(
+                 child: SizedBox(
+                   width: 100.w,
+                   height: 125.h,
+                   child: CircularProgressIndicator(
+                     valueColor: AlwaysStoppedAnimation<Color>(AppColors.secondary),
+                   ),
+                 ),
+               );
+             }
+           
+             if (controller.houseList.isEmpty) {
+               return Center(child: Text(LocaleKeys.noHousesFound.tr));
+             }
+           
+             return ListView.builder(
+               shrinkWrap: true,
+               physics: NeverScrollableScrollPhysics(), // Important
+              itemCount: controller.houseList.length.clamp(0, 4),
+
+               itemBuilder: (_, index) {
+                 final home = controller.houseList[index];
+                 return Padding(
+                   padding: EdgeInsets.only(bottom: 16.h),
+                   child: PropertyCard(
+                     imageUrls: home.imgUrls,
+                     location: home.location,
+                     address: home.address,
+                     name: home.title,
+                     roomsNumber: home.roomsNumber,
+                     bathsNumber: home.bathsNumber,
+                     floorsNumber: home.floorsNumber,
+                     groundDistance: home.groundDistance,
+                     buildingAge: home.buildingAge,
+                     mainFeatures: home.mainFeatures,
+                     description: home.description,
+                     price: '\$${home.price}',
+                     isSell: home.isSell,
+                     isRent: home.isRent,
+                     isFurnitured: home.isFurnitured, videoUrl: home.videoUrl,
+                   ),
+                 );
+               },
+             );
+           }),
+
+        ],
+      ),
+    );
   }
 }

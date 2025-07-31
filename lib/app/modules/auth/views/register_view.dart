@@ -53,7 +53,7 @@ class RegisterView extends GetView<RegisterController> {
               image: DecorationImage(
                 image: AssetImage(
                   DeviceUtils.isPhone()
-                      ? 'assets/backgrounds/phone_background.jpeg'
+                      ? 'assets/images/authphoto.jpg'
                       : 'assets/backgrounds/tablet_background.jpeg',
                 ),
                 fit: BoxFit.fitHeight,
@@ -62,7 +62,7 @@ class RegisterView extends GetView<RegisterController> {
           ),
           // Opacity Layer
           Container(
-            color: AppColors.secondary.withOpacity(0.4),
+            color: AppColors.grey.withOpacity(0.4),
           ),
 
           Form(
@@ -87,7 +87,7 @@ class RegisterView extends GetView<RegisterController> {
                   padding: EdgeInsets.only(top: 74.h,left: 48.w, right: 48.w),
                   child: Text(
                     'labels_register_to_continue_using_the_app'.tr,
-                    style: Theme.of(context).textTheme.bodySmall!.copyWith(color: AppColors.numbersfontcolor),
+                    style: Theme.of(context).textTheme.bodySmall!.copyWith(color: AppColors.fontcolor,fontWeight: FontWeight.w800),
                   ),
                 ),
 
@@ -108,7 +108,7 @@ class RegisterView extends GetView<RegisterController> {
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
 
-                    suffixIcon: Icon(Icons.person, color: AppColors.numbersfontcolor),
+                    suffixIcon: Icon(Icons.person, color: AppColors.fontcolor),
                     obsecure: false,
                     hintText: 'hint_text_enter_your_user_name'.tr,
 
@@ -133,7 +133,7 @@ class RegisterView extends GetView<RegisterController> {
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
 
-                    suffixIcon: Icon(Icons.mail, color: AppColors.numbersfontcolor),
+                    suffixIcon: Icon(Icons.mail, color: AppColors.fontcolor),
                     obsecure: false,
                     hintText: 'hint_text_enter_your_email'.tr,
 
@@ -164,7 +164,7 @@ class RegisterView extends GetView<RegisterController> {
                           (controller.isPasswordHidden.value)
                               ? Icons.visibility
                               : Icons.visibility_off,
-                          color: AppColors.numbersfontcolor,
+                          color: AppColors.white,
                         ),
                         onPressed: () {
                           controller.isPasswordHidden.value =
@@ -225,7 +225,7 @@ class RegisterView extends GetView<RegisterController> {
                       ),
                     ),
                     buttonWidth: Get.width,
-                    child: Text('buttons_sign_up'.tr, style: Theme.of(context).textTheme.bodyMedium),
+                    child: Text('buttons_sign_up'.tr, style: Theme.of(context).textTheme.labelSmall!.copyWith(color: AppColors.fontcolor)),
                   ),
                 ),
                 )

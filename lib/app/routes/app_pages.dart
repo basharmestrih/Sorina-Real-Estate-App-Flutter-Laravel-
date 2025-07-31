@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:my_house_app/app/modules/home/views/home_view.dart';
 import 'package:my_house_app/app/modules/homemanagement/bindings/home_manager.dart';
 import 'package:my_house_app/app/modules/homemanagement/view/home_manager.dart';
 import 'package:my_house_app/app/modules/property/bindings/property_bindings.dart';
@@ -10,8 +11,8 @@ import '../modules/auth/bindings/auth_binding.dart';
 import '../modules/auth/bindings/register_binding.dart';
 import '../modules/auth/views/auth_view.dart';
 import '../modules/auth/views/register_view.dart';
-import '../modules/home/bindings/home_binding.dart';
-import '../modules/home/views/home_view.dart';
+import '../modules/mainbar/bindings/mainbar_binding.dart';
+import '../modules/mainbar/views/Mainbar_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
 import '../modules/splash/views/splash_view.dart';
 
@@ -25,7 +26,7 @@ class AppPages {
   static final routes = [
     GetPage(
       name: _Paths.HOME,
-      page: () =>  HomeView(),
+      page: () =>  MainbarView(),
       binding: HomeBinding(),
     ),
     GetPage(

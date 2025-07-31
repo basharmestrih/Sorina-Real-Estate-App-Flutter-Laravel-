@@ -6,7 +6,8 @@ import 'package:my_house_app/app/core/theme/colors.dart';
 
 class AppTheme {
   static const String primaryFont = 'Poppins';
-  static const String secondaryFont = 'Inter';
+  static const String secondaryFont = 'Oswald';
+  static const String thirdFont = 'Playfair Display';
 
   // Define light theme
   static ThemeData get lightTheme {
@@ -30,22 +31,23 @@ class AppTheme {
       ),
       dividerColor: AppColors.surface,
       scaffoldBackgroundColor: AppColors.primary,
-      fontFamily: primaryFont,
+      fontFamily: secondaryFont,
       textTheme: TextTheme(
         headlineLarge: TextStyle(fontSize: 24.r,  color: AppColors.white),
         headlineMedium: TextStyle(fontSize: 22.r, fontWeight: FontWeight.w600, color: AppColors.white),
-        bodyLarge: TextStyle(fontSize: 18.r, color: AppColors.primary),
+        bodyLarge: TextStyle(fontSize: 24.r, color: AppColors.primary),
         bodyMedium: TextStyle(fontSize: 16.r, color: AppColors.secondaryfontcolor),
         titleLarge:TextStyle(fontSize: 26.r, color: AppColors.fontcolor,fontWeight: FontWeight.bold ),
+        bodySmall: TextStyle(fontSize: 18.r, color: AppColors.white,fontWeight: FontWeight.w800),
+
         
 
         titleMedium:TextStyle(fontSize: 24.r, color: AppColors.fontcolor,fontWeight: FontWeight.w600 ),
         titleSmall: TextStyle(fontSize: 17.r, color: AppColors.fontcolor,fontWeight: FontWeight.w900),
-        bodySmall: TextStyle(fontSize: 18.r, color: AppColors.secondaryfontcolor,fontWeight: FontWeight.w400),
         // for numbers
         labelLarge: TextStyle(fontSize: 26.r, fontWeight: FontWeight.bold, color: AppColors.numbersfontcolor),
         labelMedium: TextStyle(fontSize: 23.r, fontWeight: FontWeight.bold, color:AppColors.secondaryfontcolor),
-        labelSmall: TextStyle(fontSize: 16.r, fontWeight: FontWeight.bold, color: AppColors.secondaryfontcolor),
+        labelSmall: TextStyle(fontSize: 18.r, fontWeight: FontWeight.bold, color: AppColors.secondaryfontcolor),
 
       ),
       appBarTheme: AppBarTheme(

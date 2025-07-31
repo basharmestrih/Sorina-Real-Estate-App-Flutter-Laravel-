@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:my_house_app/app/modules/propertydetails/controllers/property_controller.dart';
 import 'package:my_house_app/app/modules/propertydetails/views/widgets/Appbar.dart';
 import 'package:my_house_app/app/modules/propertydetails/views/widgets/Location_Address_widget.dart';
 import 'package:my_house_app/app/modules/propertydetails/views/widgets/PropertySituation_widget.dart';
@@ -10,91 +11,78 @@ import 'package:my_house_app/app/modules/propertydetails/views/widgets/Property_
 import 'package:my_house_app/app/modules/propertydetails/views/widgets/Property_Statistics_widget.dart';
 import 'package:my_house_app/app/modules/propertydetails/views/widgets/Naming_Cost_widget.dart';
 import 'package:my_house_app/app/modules/propertydetails/views/widgets/Property_Description_widget.dart';
+import 'package:my_house_app/app/modules/propertydetails/views/widgets/Property_Video_widget.dart';
 import 'package:my_house_app/app/widgets/responsive_buttun.dart';
 
 class PropertyDetails extends StatelessWidget {
   const PropertyDetails({super.key});
-  
 
   @override
   Widget build(BuildContext context) {
-  final args = Get.arguments as Map<String, dynamic>;
-
-  final String imgUrl = args['imgUrl'] ?? '';
-  final String location = args['location'] ?? '';
-  final String address = args['address'] ?? '';
-  final String title = args['title'] ?? '';
-  final String price = args['price'] ?? '';
-  final String description = args['description'] ?? '';
-  final int roomsNumber = args['roomsNumber'] ?? 0;
-  final int bathsNumber = args['bathsNumber'] ?? 0;
-  final int floorsNumber = args['floorsNumber'] ?? 0;
-  final int groundDistance = args['groundDistance'] ?? 0;
-  final int buildingAge = args['buildingAge'] ?? 0;
-  final bool isSell = args['isSell'];
-   final bool isRent = args['isRent'];
-    final bool isFurnitured = args['isFurnitured'];
-
-  final List<String> mainFeatures = List<String>.from(args['mainFeatures'] ?? []);
-
+    final controller = Get.put(PropertyDetailsController());
 
     return Scaffold(
       appBar: const CustomAppBar(),
-     body: SingleChildScrollView(
-       child: Column(
-         crossAxisAlignment: CrossAxisAlignment.start,
-         children: [
-            PropertyGallery(imageUrl:imgUrl),
-           Padding(
-        padding: const EdgeInsets.all(16.0),
+      body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children:  [
-            SizedBox(height: 16.h),
-            TitlePriceRow(title: title, price: price),
-            SizedBox(height: 16.h),
-            DescriptionRow(
-              description: description,
+          children: [
+            PropertyGallery(imageUrls: controller.imgUrls),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 8.h),
+                  TitlePriceRow(
+                    title: controller.title,
+                    price: controller.price,
+                  ),
+                  SizedBox(height: 16.h),
+                  DescriptionRow(description: controller.description),
+                  SizedBox(height: 20.h),
+                  PropertySituation(
+                    isSell: controller.isSell,
+                    isRent: controller.isRent,
+                    isFurnitured: controller.isFurnitured,
+                  ),
+                  SizedBox(height: 20.h),
+                  LocationAddressWidget(
+                    location: controller.location,
+                    address: controller.address,
+                  ),
+                  SizedBox(height: 20.h),
+                  PropertyFeatures(features: controller.mainFeatures),
+                  SizedBox(height: 16.h),
+                  Propertystatistics(
+                    roomsNumber: controller.roomsNumber,
+                    bathsNumber: controller.bathsNumber,
+                    floorsNumber: controller.floorsNumber,
+                    groundDistance: controller.groundDistance,
+                    buildingAge: controller.buildingAge,
+                  ),
+                ],
+              ),
             ),
-            SizedBox(height: 20.h),
-            PropertySituation(isSell: isSell, isRent: isRent, isFurnitured: isFurnitured),
-            SizedBox(height: 20.h),
-            LocationAddressWidget(location:location, address:address),
-            SizedBox(height: 20.h),
-            PropertyFeatures(features: mainFeatures),
-
-            SizedBox(height: 16.h),
-            Propertystatistics(
-            roomsNumber: roomsNumber,
-            bathsNumber: bathsNumber,
-            floorsNumber: floorsNumber,
-            groundDistance: groundDistance,
-            buildingAge: buildingAge,
-          ),
-
           ],
         ),
-           ),
-         ],
-       ),
-     ),
+      ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ResponsiveButton(
-                    onPressed: () {
-                    },
-                    clickable: true,
-                    buttonStyle:  ButtonStyle(
-                      shape: WidgetStatePropertyAll(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10.r)),
-                        ),
-                      ),
-                    ),
-                    buttonWidth: Get.width/2,
-                    child:  Text( 'buttons_chat_on_whatsapp'.tr),
-                  ),
-      ), 
+          onPressed: () {},
+          clickable: true,
+          buttonStyle: ButtonStyle(
+            shape: WidgetStatePropertyAll(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10.r)),
+              ),
+            ),
+          ),
+          buttonWidth: Get.width / 2,
+          child: Text('buttons_chat_on_whatsapp'.tr),
+        ),
+      ),
     );
   }
 }

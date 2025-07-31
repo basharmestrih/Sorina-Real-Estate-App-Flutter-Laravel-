@@ -18,7 +18,7 @@ RememberMeCheckbox({super.key, required this.isChecked, this.activeColor});
       
             checkColor: Theme.of(context).primaryColor,
             side: BorderSide(
-              color: activeColor ?? AppColors.numbersfontcolor
+              color: activeColor ?? AppColors.fontcolor
             ),
             value: isChecked.value,
             onChanged: (value) {
@@ -27,7 +27,7 @@ RememberMeCheckbox({super.key, required this.isChecked, this.activeColor});
             activeColor: activeColor ?? AppColors.numbersfontcolor,
           ),
           Text('labels_remember_me'.tr,
-              style: Theme.of(context).textTheme.bodySmall!.copyWith(color: AppColors.numbersfontcolor)),
+              style: Theme.of(context).textTheme.bodySmall),
         ],
       ),
     ));

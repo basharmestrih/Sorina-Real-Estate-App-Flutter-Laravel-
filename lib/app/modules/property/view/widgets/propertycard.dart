@@ -5,10 +5,13 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:my_house_app/app/core/theme/colors.dart';
 import 'package:my_house_app/app/routes/app_pages.dart';
 import 'package:my_house_app/app/widgets/responsive_buttun.dart';
+import 'package:my_house_app/generated/locales.g.dart';
 
 //new edits
 class PropertyCard extends StatelessWidget {
-  final String imageUrl;
+  final List<String> imageUrls;
+  final String? videoUrl;
+
   final String location;
    final String address;
   final String name;
@@ -27,7 +30,8 @@ class PropertyCard extends StatelessWidget {
 
 
   const PropertyCard({
-    required this.imageUrl,
+    required this.imageUrls,
+    required this.videoUrl,
     required this.location,
     required this.address,
     required this.name,
@@ -47,7 +51,7 @@ Widget build(BuildContext context) {
         Stack(
           children: [
             Image.network(
-              imageUrl,
+              imageUrls[0],
               width: double.infinity,
               height: 250.h,
               fit: BoxFit.cover,
@@ -112,7 +116,7 @@ Widget build(BuildContext context) {
                               ),
                               SizedBox(height: 3.h,),
                                Text(
-                                '$roomsNumber Rooms, $groundDistance m², ${floorsNumber} Floor',
+                              '$roomsNumber ${LocaleKeys.rooms.tr}, $groundDistance ${LocaleKeys.area.tr}, $floorsNumber ${LocaleKeys.floors.tr}',
                                 style: Theme.of(context).textTheme.labelSmall
                               
                               ),
@@ -129,10 +133,10 @@ Widget build(BuildContext context) {
                         price,
                         style: Theme.of(context).textTheme.labelLarge,
                       ),
-                      Text(
+                      /*Text(
                         '/Paid in Usd',
                         style: TextStyle(fontSize: 14, color: Colors.grey[600]),
-                      ),
+                      ),*/
                     ],
                   ),
                 ],
@@ -154,7 +158,8 @@ Widget build(BuildContext context) {
                     Get.toNamed(
                       Routes.PROPERTYDETAILS,
                      arguments: {
-                  'imgUrl': imageUrl,
+                  'imgUrls': imageUrls,
+                  'videoUrl': videoUrl,
                   'location': location,
                   'address': address,
                   'title': name,
@@ -173,8 +178,8 @@ Widget build(BuildContext context) {
                     );
                   },
                     clickable: true,
-                    buttonWidth: Get.width/3,
-                    child: Text( 'Contact Seller', style: Theme.of(context).textTheme.titleSmall,),
+                    buttonWidth: 150.w,
+                    child: Text( 'contact_seller_button'.tr, style: Theme.of(context).textTheme.titleSmall,),
                   ),
 
                 ],

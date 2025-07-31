@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:my_house_app/app/core/theme/colors.dart';
 import 'package:my_house_app/app/data/models/category_model.dart';
-import 'package:my_house_app/app/modules/home/controllers/home_controller.dart';
+import 'package:my_house_app/app/modules/mainbar/controllers/mainbar_controller.dart';
 import 'package:my_house_app/app/modules/property/controllers/propertycontroller.dart';
 import 'package:my_house_app/app/modules/property/view/widgets/propertycard.dart';
 import 'package:my_house_app/app/modules/property/view/widgets/propertychips.dart';
@@ -24,9 +24,13 @@ class _PropertyViewState extends State<PropertyView> {
   //final randomHomes = [...exampleHomes]..shuffle();
 
 
-  void _onSearchPressed() {
-    print("Searching: ${_searchController.text}");
-  }
+void _onSearchPressed() {
+  final searchText = _searchController.text.trim();
+    print(_searchController.text.trim());
+
+  controller.fetchHouses(query: searchText);
+}
+
 
 @override
 Widget build(BuildContext context) {
@@ -86,8 +90,8 @@ Widget build(BuildContext context) {
                   print('loading');
                   return Center(
             child: SizedBox(
-              width: 100.w,
-              height: 125.h,
+              width: 95.w,
+              height: 90.h,
               child: CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(AppColors.secondary),
               ),
@@ -104,10 +108,13 @@ Widget build(BuildContext context) {
                   itemCount: controller.houseList.length,
                   itemBuilder: (_, index) {
                     final home = controller.houseList[index];
+
+
                     return Padding(
-                      padding:  EdgeInsets.only(bottom: 16.h),
+                      padding: EdgeInsets.only(bottom: 16.h),
                       child: PropertyCard(
-                        imageUrl: home.imgUrl,
+                        imageUrls: home.imgUrls,
+                        videoUrl: home.videoUrl, // assuming you’ve added this field in the model
                         location: home.location,
                         address: home.address,
                         name: home.title,
@@ -126,6 +133,7 @@ Widget build(BuildContext context) {
                     );
                   },
                 );
+
               }),
             ),
           ),

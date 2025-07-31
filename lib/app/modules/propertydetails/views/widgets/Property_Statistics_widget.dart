@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:my_house_app/generated/locales.g.dart';
 
 class Propertystatistics extends StatelessWidget {
   final int roomsNumber;
@@ -19,13 +21,13 @@ class Propertystatistics extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final features = [
-      {'icon': Icons.bed, 'label': '$roomsNumber Rooms'},
-      {'icon': Icons.bathtub, 'label': '$bathsNumber Bathrooms'},
-      {'icon': Icons.home_filled, 'label': '$floorsNumber Floors'},
-      {'icon': Icons.square_foot, 'label': '$groundDistance m²'},
-      {'icon': Icons.calendar_today, 'label': '$buildingAge Years ago'},
-    ];
+  final features = [
+    {'icon': Icons.bed, 'label': '$roomsNumber ${LocaleKeys.rooms.tr}'},
+    {'icon': Icons.bathtub, 'label': '$bathsNumber ${LocaleKeys.bathrooms.tr}'},
+    {'icon': Icons.home_filled, 'label': '$floorsNumber ${LocaleKeys.floors.tr}'},
+    {'icon': Icons.square_foot, 'label': '$groundDistance ${LocaleKeys.area.tr}'},
+    {'icon': Icons.calendar_today, 'label': '$buildingAge ${LocaleKeys.age.tr}'},
+  ];
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,7 +38,7 @@ class Propertystatistics extends StatelessWidget {
         ),
         const SizedBox(height: 12),
         SizedBox(
-          height: 120,
+          height: 120.h,
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemCount: features.length,
@@ -69,8 +71,8 @@ class FeatureCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 150,
-      height: 200,
+      width: 120.w,
+      height: 180.h,
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
       decoration: BoxDecoration(
         //color: Colors.white,

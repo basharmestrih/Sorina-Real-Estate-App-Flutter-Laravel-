@@ -12,11 +12,22 @@ class PropertyController extends GetxController {
     fetchHouses();
   }
 
- void fetchHouses({String? location}) async {
+void fetchHouses({String? location, String? query, int? limit}) async {
   try {
     isLoading.value = true;
-    final houses = await ProperttService.fetchHouses(location: location);
-    houseList.assignAll(houses);
+
+    final houses = await ProperttService.fetchHouses(
+      location: location,
+      query: query,      // Pass query here
+          // Pass limit here
+    );
+
+    // If limit is provided, take the first `limit` houses
+    final limitedHouses = (limit != null && limit > 0)
+        ? houses.take(limit).toList()
+        : houses;
+
+    houseList.assignAll(limitedHouses);
   } catch (e) {
     Get.snackbar('Error', 'Failed to load houses');
     print('Fetch error: $e');

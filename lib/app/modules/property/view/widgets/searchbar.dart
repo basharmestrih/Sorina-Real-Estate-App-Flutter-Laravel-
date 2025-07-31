@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:get/get_utils/src/extensions/internacionalization.dart';
+import 'package:get/get.dart';
 import 'package:my_house_app/app/core/theme/colors.dart';
 import 'package:my_house_app/app/widgets/responsive_buttun.dart';
 
@@ -11,6 +9,7 @@ class SearchBarWithButton extends StatelessWidget {
   final TextEditingController controller;
 
   const SearchBarWithButton({
+    super.key,
     required this.onSearch,
     required this.controller,
   });
@@ -18,69 +17,55 @@ class SearchBarWithButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-     
+      height: 65.h,
       decoration: BoxDecoration(
-         color: AppColors.lightGrey,
-        //color: AppColors.grey,
-        borderRadius: BorderRadius.circular(16),
+        color: AppColors.lightGrey,
+        borderRadius: BorderRadius.circular(16.r),
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      padding: EdgeInsets.symmetric(horizontal: 12.w),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // Borderless TextField
+          // Centered text field
           Expanded(
             child: TextField(
               controller: controller,
-              decoration:  InputDecoration(
-                 fillColor: AppColors.lightGrey,
+                style: TextStyle(
+                color: AppColors.fontcolor, // Set input text color
+                fontSize: 17.sp,
+              ),
+              decoration: InputDecoration(
+                fillColor: AppColors.lightGrey,
                 hintText: 'search_label_hint'.tr,
-                prefixIcon: Icon(Icons.search),
+                hintStyle: TextStyle(
+                fontSize: 17.sp, // Smaller font size
+                color:AppColors.fontcolor, // Custom hint color
+              ),
+                prefixIcon: const Icon(Icons.search),
                 border: InputBorder.none,
                 enabledBorder: InputBorder.none,
                 focusedBorder: InputBorder.none,
-                contentPadding: EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+                contentPadding: EdgeInsets.symmetric(vertical: 6.h),
               ),
             ),
           ),
-          const SizedBox(width: 8),
+
+          SizedBox(width: 8.w),
+
+          // Button on the right
           ResponsiveButton(
-                    onPressed: () {
-                      
-                    },
-                    clickable: true,
-
-                    buttonStyle: ButtonStyle(
-
-
-                      shape: WidgetStatePropertyAll(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10.r)),
-                        ),
-                      ),
-                    ),
-                    buttonWidth: Get.width/4,
-                    child: Text( 'button_search'.tr,),
-                  ),
-
-          // Search Button
-          /*ElevatedButton(
             onPressed: onSearch,
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.amber[400],
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              elevation: 0,
-            ),
-            child: const Text(
-              'Search',
-              style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
+            clickable: true,
+            buttonStyle: ButtonStyle(
+              shape: WidgetStatePropertyAll(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10.r)),
+                ),
               ),
             ),
-          ),*/
+            buttonWidth: Get.width / 4,
+            child: Text('button_search'.tr),
+          ),
         ],
       ),
     );

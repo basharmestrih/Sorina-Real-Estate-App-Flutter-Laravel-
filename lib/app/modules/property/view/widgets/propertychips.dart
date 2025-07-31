@@ -26,7 +26,9 @@ class CategoryChip extends StatelessWidget {
         child: Center(
           child: Text(
             label,
-            style: Theme.of(context).textTheme.labelSmall, 
+           style: Theme.of(context).textTheme.labelSmall?.copyWith(
+    color: isSelected ? AppColors.black : AppColors.grey,
+  ),
            
             textAlign: TextAlign.center,
           ),

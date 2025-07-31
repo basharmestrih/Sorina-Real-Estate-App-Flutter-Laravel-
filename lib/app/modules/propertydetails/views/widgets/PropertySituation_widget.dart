@@ -51,7 +51,7 @@ class PropertySituation extends StatelessWidget {
             ),
             SizedBox(width: 4), // small spacing between icon and text
             Text(
-              isFurnitured ? 'Furnitured' : 'Not Furnitured',
+              isFurnitured ? 'furnitured_category'.tr : 'not_furnitured_category'.tr,
               style: Theme.of(context).textTheme.titleSmall?.copyWith(
                     color: Colors.black,
                   ),

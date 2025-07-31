@@ -17,6 +17,23 @@ class LocaleKeys {
   static const bar_label_2 = 'bar_label_2';
   static const bar_label_3 = 'bar_label_3';
   static const bar_label_4 = 'bar_label_4';
+  //sideMenu
+  static const String home = 'home';
+  static const String saleProperties = 'sale_properties';
+  static const String rentProperties = 'rent_properties';
+  static const String farmsSale = 'farms_sale';
+  static const String consult = 'consult';
+  static const String langToggle = 'lang_toggle';
+  //home
+  static const ad_label= 'ad_label';
+  static const ad_label_ext = 'ad_label_ext';
+  static const ad_label_ext2 = 'ad_label_ext2';
+  static const ourServices = 'ourServices';
+  static const propertiesForSale = 'propertiesForSale';
+  static const propertiesForRent = 'propertiesForRent';
+  static const ask_button = 'ask_button';
+  static const latestAddedProperties = 'latestAddedProperties';
+  static const noHousesFound = 'noHousesFound';
   //property
   static const button_search = 'button_search';
   static const search_label_hint ='search_label_hint';
@@ -30,11 +47,21 @@ class LocaleKeys {
   static const category_sweidaa = 'category_sweidaa';
   static const for_sale_category = 'for_sale_category';
   static const for_rent_category = 'for_rent_category';
+  static const contact_seller_button = 'contact_seller_button';
+
   
   
   //property details
   static const property_details_title = 'property_details_title';
   static const label_features = 'label_features';
+  static const furnitured_category = 'furnitured_category';
+  static const not_furnitured_category = 'not_furnitured_category';
+
+  static const rooms = 'rooms';
+  static const bathrooms = 'bathrooms';
+  static const floors = 'floors';
+  static const area = 'area';
+  static const age = 'age';
   //property manager
   static const manager_page_title = 'manager_page_title';
   static const title_label = 'title_label';
@@ -61,6 +88,8 @@ class LocaleKeys {
   static const submit_property = 'submit_property';
   static const language = 'language';
   static const labels_or = 'labels_or';
+  //LOGIN PAGE
+  static const guest_button = 'guest_button';
   static const labels_login = 'labels_login';
   static const labels_login_with_Google = 'labels_login_with_Google';
   static const labels_sign_in = 'labels_sign_in';
@@ -133,9 +162,28 @@ class Locales {
     'bar_label_2':  "عروض مميزة",
     'bar_label_3':  "عقاراتي",
     'bar_label_4':  "الحصول على استشارة",
+    //sideMenu
+
+     'home': 'الرئيسية',
+    'properties_sale': 'عقارات للبيع',
+    'properties_rent': 'عقارات للإيجار',
+    'farms_sale': 'مزارع للبيع',
+    'ask_consultant': 'اسأل مستشارًا',
+    'language_switch': 'العربية / EN',
+    //home
+     'ad_label': 'أعلن هنا',
+     'ad_label_ext' : 'كن مميزا',
+     'ad_label_ext2' : 'مميز',
+     'ask_button' : 'اسأل مستشاراً',
+    'ourServices': 'خدماتنا',
+    'propertiesForSale': 'عقارات للبيع',
+    'propertiesForRent': 'عقارات للإيجار',
+    'latestAddedProperties': 'أحدث العقارات المضافة',
+    'noHousesFound': 'لا توجد عقارات',
+    
     //property
     'button_search': "بحث",
-    'search_label_hint': "ابحث باستخدام الاسم",
+    'search_label_hint': "الاسم/الموقع/العنوان....",
     'category_all': "الكل",
     
     "category_damascus": "دمشق",
@@ -147,11 +195,20 @@ class Locales {
     "category_sweidaa": "السويداء",
     'for_sale_category': "للبيع",
     'for_rent_category': "للأجار",
+     'contact_seller_button': 'تواصل مع البائع',
+
 
     //property details
     'property_details_title':'معلومات العقار',
     'label_features': 'المزايا الرئيسية ',
+    'furnitured_category': "مفروش",
+    'not_furnitured_category': "غير مفروش",
     'label_what_will_you_get':'على ماذا ستحصل',
+    "rooms": "غرف",
+    "bathrooms": "حمامات",
+    "floors": "طوابق",
+    "area": "متر²",
+    "age": "منذ سنوات",
     //property manager
     'manager_page_title': 'مدير العقارات',
     "title_label": "العنوان",
@@ -179,6 +236,7 @@ class Locales {
     'language': 'ar',
     'labels_or': 'أو',
     'labels_login': 'تسجيل الدخول',
+    'guest_button': 'الدخول كضيف',
     'labels_login_with_Google': 'تسجيل الدخول باستخدام غوغل',
     'labels_sign_in': 'تسجيل الدخول',
     'labels_logout': 'تسجيل الخروج',
@@ -242,9 +300,26 @@ class Locales {
     'bar_label_2': 'Hot Deals',
     'bar_label_3': 'My Offers',
     'bar_label_4': 'Ask a Consultant',
+    //sideMenu
+    'home': 'Home',
+    'properties_sale': 'Properties for Sale',
+    'properties_rent': 'Properties for Rent',
+    'farms_sale': 'Farms for Sale',
+    'ask_consultant': 'Ask a Consultant',
+    'language_switch': 'EN / AR',
+    //home
+      'ad_label': 'Advertise here',
+      'ad_label_ext' : 'Be Special',
+      'ad_label_ext2' : 'Special',
+      'ask_button': 'Ask a consultant',
+     'ourServices': 'Our Services',
+     'propertiesForSale': 'Properties for Sale',
+     'propertiesForRent': 'Properties for Rent',
+     'latestAddedProperties': 'Latest Added Properties',
+     'noHousesFound': 'No houses found',
     //property
     'button_search': 'Search',
-    'search_label_hint': 'Seacrh by name',
+    'search_label_hint': 'Name/Location/Address',
     'category_all': "All",
     "category_damascus": "Damascus",
     "category_aleppo": "Aleppo",
@@ -255,10 +330,19 @@ class Locales {
     "category_sweidaa": "Sweidaa",
     'for_sale_category': "For Sale",
     'for_rent_category': "For Rent",
+     'contact_seller_button': 'Contact Seller',
+
     //property details
     'property_details_title':'Property Details',
     'label_features':'Main features',
     'label_what_will_you_get':'What will you get',
+    'furnitured_category': "Furnitured",
+    'not_furnitured_category': "Not furnitured",
+    "rooms": "Rooms",
+    "bathrooms": "Bathrooms",
+    "floors": "Floors",
+    "area": "m²",
+    "age": "Years ago",
     //property manager
     'manager_page_title': 'Property Manager',
     
@@ -289,6 +373,7 @@ class Locales {
     'language': 'en',
     'labels_or': 'Or',
     'labels_login': 'Login',
+    'guest_button': 'Guest',
     'labels_login_with_Google': 'Login with Google',
     'labels_sign_in': 'Sign-in',
     'labels_logout': 'Logout',
