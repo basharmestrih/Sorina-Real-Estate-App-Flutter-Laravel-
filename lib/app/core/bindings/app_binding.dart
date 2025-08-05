@@ -9,6 +9,7 @@ class AppBinding extends Bindings {
   void dependencies() {
     Get.put(RootController());
     Get.put(SplashController());
+   
 
   }
 }

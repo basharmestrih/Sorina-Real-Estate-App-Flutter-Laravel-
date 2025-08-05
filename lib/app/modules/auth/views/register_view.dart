@@ -30,6 +30,7 @@ class RegisterView extends GetView<RegisterController> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
 
       // appBar: AppBar(
       //   backgroundColor: Colors.transparent,
@@ -48,21 +49,10 @@ class RegisterView extends GetView<RegisterController> {
       resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(
-                  DeviceUtils.isPhone()
-                      ? 'assets/images/authphoto.jpg'
-                      : 'assets/backgrounds/tablet_background.jpeg',
-                ),
-                fit: BoxFit.fitHeight,
-              ),
-            ),
-          ),
+          
           // Opacity Layer
           Container(
-            color: AppColors.grey.withOpacity(0.4),
+            color: AppColors.grey.withOpacity(0.2),
           ),
 
           Form(
@@ -84,10 +74,10 @@ class RegisterView extends GetView<RegisterController> {
                 ),
                 //Register to continue
                 Container(
-                  padding: EdgeInsets.only(top: 74.h,left: 48.w, right: 48.w),
+                  padding: EdgeInsets.only(top: 33.h,left: 48.w, right: 48.w),
                   child: Text(
                     'labels_register_to_continue_using_the_app'.tr,
-                    style: Theme.of(context).textTheme.bodySmall!.copyWith(color: AppColors.fontcolor,fontWeight: FontWeight.w800),
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: AppColors.fontcolor,fontWeight: FontWeight.w800),
                   ),
                 ),
 
@@ -97,7 +87,7 @@ class RegisterView extends GetView<RegisterController> {
 
                 //Name
                 Container(
-                  margin:   EdgeInsets.only(top:5.h,left: 48.w,right: 48.w),
+                  margin:   EdgeInsets.only(top:15.h,left: 48.w,right: 48.w),
                   child: InputTextFormField(
 
 
@@ -225,7 +215,7 @@ class RegisterView extends GetView<RegisterController> {
                       ),
                     ),
                     buttonWidth: Get.width,
-                    child: Text('buttons_sign_up'.tr, style: Theme.of(context).textTheme.labelSmall!.copyWith(color: AppColors.fontcolor)),
+                    child: Text('buttons_sign_up'.tr, style: Theme.of(context).textTheme.titleMedium!.copyWith(color: AppColors.fontcolor)),
                   ),
                 ),
                 )

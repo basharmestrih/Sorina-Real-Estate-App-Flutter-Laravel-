@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:my_house_app/app/core/theme/colors.dart';
 import 'package:my_house_app/app/data/models/category_model.dart';
-import 'package:my_house_app/app/modules/mainbar/controllers/mainbar_controller.dart';
+import 'package:my_house_app/app/modules/mainscreen/controllers/mainbar_controller.dart';
 import 'package:my_house_app/app/modules/property/controllers/propertycontroller.dart';
 import 'package:my_house_app/app/modules/property/view/widgets/propertycard.dart';
 import 'package:my_house_app/app/modules/property/view/widgets/propertychips.dart';

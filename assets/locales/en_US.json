@@ -48,8 +48,7 @@
     "must_not_be_empty": "It must not be empty",
     "please_confirm_your_password": "Please confirm your password",
     "passwords_do_not_match": "Passwords do not match"
-  }
-,
+  },
   "buttons": {
     "login": "Login",
     "register": "Register",
@@ -59,5 +58,9 @@
     "logout": "Logout",
     "sign_in_fb": "Sign-in with Facebook",
     "sign_in_google": "Sign-in with Google"
-  }
+  },
+  "Feel free to post your properties for sale with us!": "Feel free to post your properties for sale with us!",
+  "Just contact our admins via WhatsApp, Gmail, or a phone call.": "Just contact our admins via WhatsApp, Gmail, or a phone call.",
+  "Contact Us": "Contact Us",
+  "Post Property": "Post Property"
 }

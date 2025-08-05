@@ -3,7 +3,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:flutter/material.dart';
 
 class LocaleService extends GetxService {
-  final _box = GetStorage();
+  static LocaleService instance = Get.find<LocaleService>();  final _box = GetStorage();
   final _key = 'locale';
 
   // Default locale
@@ -27,5 +27,15 @@ class LocaleService extends GetxService {
     final current = Get.locale?.languageCode ?? defaultLocale.languageCode;
     final newLocale = (current == 'en') ? Locale('ar', 'SY') : Locale('en', 'US');
     saveLocale(newLocale);
+  }
+
+  // Add this getter to return the font family depending on current locale
+  String get fontType {
+    final currentLang = Get.locale?.languageCode ?? defaultLocale.languageCode;
+    if (currentLang == 'ar') {
+      return 'Cairo'; // Arabic font
+    } else {
+      return 'Fjalla One'; // English font
+    }
   }
 }

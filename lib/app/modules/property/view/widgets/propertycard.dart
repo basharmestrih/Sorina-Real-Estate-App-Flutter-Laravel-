@@ -51,7 +51,7 @@ Widget build(BuildContext context) {
         Stack(
           children: [
             Image.network(
-              imageUrls[0],
+            'https://th.bing.com/th/id/R.a54d707f18715e754f9599d53abae477?rik=f4JkT5AdJsq%2bfg&pid=ImgRaw&r=0&sres=1&sresct=1',
               width: double.infinity,
               height: 250.h,
               fit: BoxFit.cover,
@@ -145,7 +145,7 @@ Widget build(BuildContext context) {
                   Text(
                     name,
                
-                    style: Theme.of(context).textTheme.titleSmall,
+                    style: Theme.of(context).textTheme.titleMedium,
                     
                   ),
 

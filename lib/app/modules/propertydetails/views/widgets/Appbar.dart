@@ -33,7 +33,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           child: CircleAvatar(
             backgroundColor: Colors.white,
             child: IconButton(
-              icon: const Icon(Icons.more_vert,  size:30,color: Colors.black),
+              icon: const Icon(Icons.share,  size:30,color: Colors.black),
               onPressed: () {
                 // More options action
               },

@@ -25,6 +25,7 @@ class LocaleKeys {
   static const String farmsSale = 'farms_sale';
   static const String consult = 'consult';
   static const String langToggle = 'lang_toggle';
+  static const String logout_button = 'logout_button';
   //home
   static const ad_label= 'ad_label';
   static const ad_label_ext = 'ad_label_ext';
@@ -69,6 +70,7 @@ class LocaleKeys {
   static const area = 'area';
   static const age = 'age';
   //property manager
+  static const adding_tip = 'adding_tip';
   static const manager_page_title = 'manager_page_title';
   static const title_label = 'title_label';
   static const title_hint = 'title_hint';
@@ -94,6 +96,44 @@ class LocaleKeys {
   static const submit_property = 'submit_property';
   static const language = 'language';
   static const labels_or = 'labels_or';
+  //ARCH PAGE
+    static const specialization = 'specialization';
+  static const university = 'university';
+  static const country = 'country';
+  static const city = 'city';
+  static const experience = 'experience';
+  static const languages = 'languages';
+  static const yearsExperience = 'yearsExperience';
+  static const phone = 'phone';
+  //DASHBOARD PAGE
+  static const add_house_card = 'add_house_card';
+  static const delete_house_card = 'delete_house_card';
+  static const show_house_card = 'show_house_card';
+  static const add_eng_card = 'add_eng_card';
+  //ADD ENGINEERING
+    static const adding_engineer_title = 'adding_engineer_title';
+    static const  engineer_name_label = 'engineer_name_label';
+    static const engineer_name_hint = 'engineer_name_hint';
+    static const engineer_phone_label = 'engineer_phone_label';
+    static const engineer_phone_hint = 'Enter engineer phone number';
+    static const engineer_specialization_label = 'engineer_specialization_label';
+    static const engineer_specialization_hint = 'engineer_specialization_hint';
+    static const country_label = 'country_label';
+    static const country_hint = 'country_hint';
+    static const city_label = 'city_label';
+    static const city_hint = 'city_hint';
+    static const experience_label = 'experience_label';
+    static const experience_hint = 'experience_hint';
+    static const years_experience_label = 'years_experience_label';
+    static const years_experience_hint = 'years_experience_hint';
+    static const languages_label = 'languages_label';
+    static const languages_hint = 'languages_hint';
+    static const university_label = 'university_label';
+    static const university_hint = 'university_hint';
+    static const submit_engineer_button = 'submit_engineer_button';
+  //DELETE HOUSE
+  static const deleting_tip = 'deleting_tip';
+  static const delete_button = 'delete_button';
   //LOGIN PAGE
   static const guest_button = 'guest_button';
   static const labels_login = 'labels_login';
@@ -157,6 +197,10 @@ class LocaleKeys {
   static const buttons_sign_in_fb = 'buttons_sign_in_fb';
   static const buttons_sign_in_google = 'buttons_sign_in_google';
   static const buttons_chat_on_whatsapp = 'buttons_chat_on_whatsapp';
+  //ASK FOR AD PAGE
+    static const first_body_askforsell = 'first_body_askforsell';
+   static const second_body_askforsell = 'second_body_askforsell';
+  static const contact_us_button = 'contact_us_button';
 }
 
 
@@ -165,18 +209,19 @@ class Locales {
     'welcome': 'أهلاً بك',
     //bar items
     'bar_label_1':  "الصفحة الرئيسية",
-    'bar_label_2':  "عروض مميزة",
-    'bar_label_3':  "عقاراتي",
+    'bar_label_2':  "المتجر",
+    'bar_label_3':  "أضف عقار للبيع",
     'bar_label_4':  "الحصول على استشارة",
     //sideMenu
 
      'home': 'الرئيسية',
-     'Dashboard': 'لوحة التجكم',
+     'Dashboard': 'لوحة التحكم',
     'properties_sale': 'عقارات للبيع',
     'properties_rent': 'عقارات للإيجار',
     'farms_sale': 'مزارع للبيع',
     'ask_consultant': 'اسأل مستشارًا',
-    'language_switch': 'العربية / EN',
+    'language_switch': 'الانجليزية / العربية ',
+    'logout_button': 'تسجيل الخروج ',
     //home
      'ad_label': 'أعلن هنا',
      'ad_label_ext' : 'كن مميزا',
@@ -221,7 +266,8 @@ class Locales {
     "area": "متر²",
     "age": "منذ سنوات",
     //property manager
-    'manager_page_title': 'مدير العقارات',
+    'adding_tip': 'يمكنك إضافة عقار جديد عن طريق ملء البيانات المطلوبة (نص - صور - فيديوهات).',
+    'manager_page_title': 'لوحة التحكم',
     "title_label": "العنوان",
     "title_hint": "أدخل عنوان العقار",
 
@@ -244,6 +290,48 @@ class Locales {
     "address_hint": "أدخل عنوان العقار",
 
     "submit_property": "أضف العقار إلى قاعدة البيانات",
+    //ARCH PAGE
+    'specialization' : 'التخصص',
+ 'university' : 'الجامعة',
+  'country' : 'البلد',
+  'city' : 'المدينة',
+   'experience' : 'الخبرة',
+   'languages' : 'اللغات',
+  'yearsExperience' : 'عدد سنوات الخبرة',
+   'phone' : 'رقم الهاتف',
+    //DASHBOARD PAGE
+    'add_house_card' : 'أضف عقار',
+    'delete_house_card' : 'حذف عقار',
+    'show_house_card' : 'عرض العقارات',
+    'add_eng_card' : 'أضف مهندس',
+    'deleting_tip': 'يمكنك حذف أي عقار تريدها بإدخال معرف عقار',
+    'delete_button': 'حذف من القائمة',
+    //Add engineering
+    'adding_engineer_title': 'إضافة مهندس',
+    'engineer_name_label': 'اسم المهندس',
+    'engineer_name_hint': 'أدخل اسم المهندس',
+    'engineer_email_label': 'البريد الإلكتروني للمهندس',
+    'engineer_email_hint': 'أدخل البريد الإلكتروني للمهندس',
+    'engineer_phone_label': 'رقم هاتف المهندس',
+    'engineer_phone_hint': 'أدخل رقم هاتف المهندس',
+    'engineer_specialization_label': 'التخصص',
+    'engineer_specialization_hint': 'أدخل التخصص',
+    'country_label': 'البلد',
+    'country_hint': 'أدخل البلد',
+    'city_label': 'المدينة',
+    'city_hint': 'أدخل المدينة',
+    'experience_label': 'الخبرة',
+    'experience_hint': 'أدخل الخبرة',
+    'years_experience_label': 'عدد سنوات الخبرة',
+    'years_experience_hint': 'أدخل عدد سنوات الخبرة',
+    'languages_label': 'اللغات',
+    'languages_hint': 'أدخل اللغات',
+    'university_label': 'الجامعة',
+    'university_hint': 'أدخل الجامعة',
+    'submit_engineer_button': 'حفظ بيانات المهندس',
+
+
+
     'language': 'ar',
     'labels_or': 'أو',
     'labels_login': 'تسجيل الدخول',
@@ -261,7 +349,7 @@ class Locales {
     'labels_dont_have_an_account': 'ليس لديك حساب؟',
     'labels_register': 'قم بالتسجيل',
     'labels_register_to_continue_using_the_app':
-        'قم بالتسجيل لمواصلة استخدام التطبيق',
+        'سجل الآن للحصول على آخر اخبار سوق العقارات في سوريا',
     'labels_user_name': 'اسم المستخدم',
     'labels_register_with_Google': 'تسجيل الدخول باستخدام Google',
     'labels_welcome_to': 'أهلاً بك في',
@@ -302,14 +390,19 @@ class Locales {
     'buttons_logout': 'تسجيل الخروج',
     'buttons_sign_in_fb': 'تسجيل الدخول عن طريق Facebook',
     'buttons_sign_in_google': 'تسجيل الدخول عن طريق Google',
-    'buttons_chat_on_whatsapp': 'تواصل عبر واتساب'
+    'buttons_chat_on_whatsapp': 'تواصل عبر واتساب',
+    //ASK FOR AD PAGE 
+  "first_body_askforsell": "بكبسة زر فيك تنشر اي عقار عنا وبدون اي رسوم!!!!",
+  "second_body_askforsell": "ما عليك سوى الاتصال بالمسؤولين لدينا عبر WhatsApp أو Gmail أو مكالمة هاتفية.",
+  "contact_us_button": "اتصل بنا",
+  //"post_property": "نشر عقار"
   };
   static const en_US = {
     'welcome': 'Welcome',
     //bar items
     'bar_label_1': 'Home',
-    'bar_label_2': 'Hot Deals',
-    'bar_label_3': 'My Offers',
+    'bar_label_2': 'Store',
+    'bar_label_3': 'Add Property',
     'bar_label_4': 'Ask a Consultant',
     //sideMenu
     'home': 'Home',
@@ -319,6 +412,7 @@ class Locales {
     'farms_sale': 'Farms for Sale',
     'ask_consultant': 'Ask a Consultant',
     'language_switch': 'EN / AR',
+    'logout_button': 'Logout',
     //home
       'ad_label': 'Advertise here',
       'ad_label_ext' : 'Be Special',
@@ -360,8 +454,40 @@ class Locales {
     "floors": "Floors",
     "area": "m²",
     "age": "Years ago",
+     //DASHBOARD PAGE
+     'add_house_card' : 'Add Property',
+    'delete_house_card' : 'Delete Property',
+    'show_house_card' : 'Show Properties',
+    'add_eng_card' : 'Add Architect',
+    'deleting_tip': 'You can delete any property you want by entering id of the property',
+    'delete_button': 'Delete From list',
+    //ADD ENGINEERING
+    'adding_engineer_title': 'Add Engineer',
+    'engineer_name_label': 'Engineer Name',
+    'engineer_name_hint': 'Enter engineer name',
+    'engineer_email_label': 'Engineer Email',
+    'engineer_email_hint': 'Enter engineer email',
+    'engineer_phone_label': 'Engineer Phone',
+    'engineer_phone_hint': 'Enter engineer phone number',
+    'engineer_specialization_label': 'Specialization',
+    'engineer_specialization_hint': 'Enter specialization',
+    'country_label': 'Country',
+    'country_hint': 'Enter country',
+    'city_label': 'City',
+    'city_hint': 'Enter city',
+    'experience_label': 'Experience',
+    'experience_hint': 'Enter experience',
+    'years_experience_label': 'Years of Experience',
+    'years_experience_hint': 'Enter years of experience',
+    'languages_label': 'Languages',
+    'languages_hint': 'Enter languages',
+    'university_label': 'University',
+    'university_hint': 'Enter university',
+    'submit_engineer_button': 'Submit Data',
+
     //property manager
-    'manager_page_title': 'Property Manager',
+    'adding_tip': 'You can add new property be filling required data (text - images - trailers).',
+    'manager_page_title': 'DashBoard',
     
     "title_label": "Title",
     "title_hint": "Enter the property title",
@@ -385,7 +511,15 @@ class Locales {
     "address_hint": "Enter the property address",
 
     "submit_property": "Add Property to Database",
-
+        //ARCH PAGE
+    'specialization' : 'Specialization',
+ 'university' : 'University',
+  'country' : 'Country',
+  'city' : 'City',
+   'experience' : 'Experience',
+   'languages' : 'Languages',
+  'yearsExperience' : 'Years Experience',
+   'phone' : 'Phone',
 
     'language': 'en',
     'labels_or': 'Or',
@@ -404,7 +538,7 @@ class Locales {
     'labels_dont_have_an_account': 'Don\'t have an account?',
     'labels_register': 'Register',
     'labels_register_to_continue_using_the_app':
-        'Register to continue using the app',
+        'Register now to get latest updates of real estate market in Syria',
     'labels_user_name': 'User Name',
     'labels_register_with_Google': 'Register with Google',
     'labels_welcome_to': 'Welcome to',
@@ -444,5 +578,11 @@ class Locales {
     'buttons_sign_in_fb': 'Sign-in with Facebook',
     'buttons_sign_in_google': 'Sign-in with Google',
     'buttons_chat_on_whatsapp':'Chat on whatsapp',
+    //ASK FOR AD PAGE
+  'first_body_askforsell': "Just one click you can post your property without any fees!!!!",
+  'second_body_askforsell': "Just contact our admins via WhatsApp, Gmail, or a phone call.",
+  'contact_us_button': "Contact Us",
+  //"Post Property": "Post Property",
+
   };
 }

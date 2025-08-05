@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:my_house_app/app/core/theme/colors.dart';
+import 'package:my_house_app/app/modules/home/controllers/home_controller.dart';
 import 'package:my_house_app/app/modules/home/views/widgets/advertise_card.dart';
 import 'package:my_house_app/app/modules/home/views/widgets/consultant_card.dart';
 import 'package:my_house_app/app/modules/home/views/widgets/section_title.dart';
@@ -13,7 +14,8 @@ import 'package:my_house_app/generated/locales.g.dart';
 
 class HomeView extends StatelessWidget {
    HomeView({super.key});
-  final controller = Get.find<PropertyController>();
+  final propertycontroller = Get.find<PropertyController>();
+   final homecontroller = Get.find<HomeController>();
   
 
   @override
@@ -25,6 +27,7 @@ class HomeView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Top advertising card
+          
           AdvertiseCard(),
       
           SizedBox(height: 24.h),
@@ -58,7 +61,7 @@ class HomeView extends StatelessWidget {
           SizedBox(height: 16.h),
 
            Obx(() {
-             if (controller.isLoading.value) {
+             if (propertycontroller.isLoading.value) {
                return Center(
                  child: SizedBox(
                    width: 100.w,
@@ -70,17 +73,17 @@ class HomeView extends StatelessWidget {
                );
              }
            
-             if (controller.houseList.isEmpty) {
+             if (propertycontroller.houseList.isEmpty) {
                return Center(child: Text(LocaleKeys.noHousesFound.tr));
              }
            
              return ListView.builder(
                shrinkWrap: true,
                physics: NeverScrollableScrollPhysics(), // Important
-              itemCount: controller.houseList.length.clamp(0, 4),
+              itemCount: propertycontroller.houseList.length.clamp(0, 4),
 
                itemBuilder: (_, index) {
-                 final home = controller.houseList[index];
+                 final home = propertycontroller.houseList[index];
                  return Padding(
                    padding: EdgeInsets.only(bottom: 16.h),
                    child: PropertyCard(

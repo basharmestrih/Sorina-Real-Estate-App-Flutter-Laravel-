@@ -4,7 +4,7 @@ class AppColors {
   // static const Color primary = Color(0xFF496C6D);
   static const Color primary = Colors.white;
   // target amber color
-  static const Color secondary = Color(0xFFFFDE59);
+  static const Color secondary =Colors.amberAccent;
   
   static const fontcolor = Colors.black;
   static const secondaryfontcolor =Colors.grey;
@@ -15,7 +15,7 @@ class AppColors {
 
   // static const Color surface = Color.fromRGBO(252, 253, 253, 1);
   static const Color surface = Color.fromRGBO(233, 238, 238, 0.9);
-  static const Color responsiveButtonColor = Color(0xFFFFDE59);
+  static const Color responsiveButtonColor = Colors.amberAccent;
 
   static const Color white = Color.fromRGBO(252, 253, 253, 1);
   static const Color black = Colors.black;

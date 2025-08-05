@@ -30,7 +30,7 @@ class PropertyDetails extends StatelessWidget {
           children: [
             PropertyGallery(imageUrls: controller.imgUrls),
             Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding:  EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 4.h),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -54,17 +54,20 @@ class PropertyDetails extends StatelessWidget {
                   ),
                   SizedBox(height: 20.h),
                   PropertyFeatures(features: controller.mainFeatures),
-                  SizedBox(height: 16.h),
-                  Propertystatistics(
-                    roomsNumber: controller.roomsNumber,
-                    bathsNumber: controller.bathsNumber,
-                    floorsNumber: controller.floorsNumber,
-                    groundDistance: controller.groundDistance,
-                    buildingAge: controller.buildingAge,
-                  ),
+                 
                 ],
               ),
             ),
+             Padding(
+               padding: EdgeInsets.fromLTRB(0,10.h,10.w,10.h),
+               child: Propertystatistics(
+                      roomsNumber: controller.roomsNumber,
+                      bathsNumber: controller.bathsNumber,
+                      floorsNumber: controller.floorsNumber,
+                      groundDistance: controller.groundDistance,
+                      buildingAge: controller.buildingAge,
+                    ),
+             ),
           ],
         ),
       ),

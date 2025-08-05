@@ -16,11 +16,11 @@ import 'theme/colors.dart';
 import 'theme/themes.dart';
 
 final ThemeController themeController = Get.put(ThemeController());
-final LocaleService localeService = Get.put(LocaleService());
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
+   Get.find<LocaleService>().getLocale();
 
 
   // Set the system UI overlay style globally before running the app
@@ -52,7 +52,7 @@ void main() async {
           initialRoute: AppPages.INITIAL,
           getPages: AppPages.routes,
           translationsKeys: AppTranslation.translations,
-          locale: localeService.getLocale(),
+          locale: Get.find<LocaleService>().getLocale(), 
           fallbackLocale: const Locale('en', 'US'),
           // Wrap MaterialApp with AnnotatedRegion to apply the system UI style globally
           builder: (context, child) {

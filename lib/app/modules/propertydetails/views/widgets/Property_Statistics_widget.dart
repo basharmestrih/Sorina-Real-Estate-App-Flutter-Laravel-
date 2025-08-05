@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:my_house_app/app/core/theme/colors.dart';
 import 'package:my_house_app/generated/locales.g.dart';
 
 class Propertystatistics extends StatelessWidget {
@@ -34,9 +35,9 @@ class Propertystatistics extends StatelessWidget {
       children: [
         Text(
           'label_what_will_you_get'.tr,
-          style: Theme.of(context).textTheme.titleMedium,
+          style: Theme.of(context).textTheme.bodyMedium!.copyWith(color:AppColors.fontcolor),
         ),
-        const SizedBox(height: 12),
+         SizedBox(height: 24.h),
         SizedBox(
           height: 120.h,
           child: ListView.separated(

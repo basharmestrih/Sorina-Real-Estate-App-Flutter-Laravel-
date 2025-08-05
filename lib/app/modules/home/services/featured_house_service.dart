@@ -11,6 +11,7 @@ class HouseService {
       );
 
       if (response.statusCode == 200) {
+        print(response);
         final jsonResponse = json.decode(response.body);
         final houseData = jsonResponse['data']['data'][0]['house'];
         return HomeModel.fromJson(houseData);

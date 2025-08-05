@@ -25,9 +25,11 @@ RememberMeCheckbox({super.key, required this.isChecked, this.activeColor});
               },
             ),
           ),
-          SizedBox(width:5.w),
+          SizedBox(width:15.w),
           Text('labels_remember_me'.tr,
-              style: Theme.of(context).textTheme.bodySmall),
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                color: Colors.grey[500]
+              )),
         ],
       ),
     ));

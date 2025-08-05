@@ -1,7 +1,13 @@
 import 'package:get/get.dart';
+import 'package:my_house_app/app/modules/dashboard/NestedPages/AddingEngineers/bindings/adding_engineer_bindings.dart';
+import 'package:my_house_app/app/modules/dashboard/NestedPages/AddingEngineers/view/adding_engineer.dart';
+import 'package:my_house_app/app/modules/dashboard/NestedPages/DeletingTool/bindings/DeletingToolBindings.dart';
+import 'package:my_house_app/app/modules/dashboard/NestedPages/DeletingTool/views/page.dart';
+import 'package:my_house_app/app/modules/dashboard/NestedPages/AddingHome/bindings/home_manager.dart';
+import 'package:my_house_app/app/modules/dashboard/NestedPages/AddingHome/view/home_manager.dart';
+import 'package:my_house_app/app/modules/dashboard/bindings/DashBoardBindings.dart';
+import 'package:my_house_app/app/modules/dashboard/views/Page.dart';
 import 'package:my_house_app/app/modules/home/views/home_view.dart';
-import 'package:my_house_app/app/modules/homemanagement/bindings/home_manager.dart';
-import 'package:my_house_app/app/modules/homemanagement/view/home_manager.dart';
 import 'package:my_house_app/app/modules/property/bindings/property_bindings.dart';
 import 'package:my_house_app/app/modules/property/view/property.dart';
 import 'package:my_house_app/app/modules/propertydetails/bindings/property_binding.dart';
@@ -11,8 +17,8 @@ import '../modules/auth/bindings/auth_binding.dart';
 import '../modules/auth/bindings/register_binding.dart';
 import '../modules/auth/views/auth_view.dart';
 import '../modules/auth/views/register_view.dart';
-import '../modules/mainbar/bindings/mainbar_binding.dart';
-import '../modules/mainbar/views/Mainbar_view.dart';
+import '../modules/mainscreen/bindings/mainbar_binding.dart';
+import '../modules/mainscreen/views/Mainbar_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
 import '../modules/splash/views/splash_view.dart';
 
@@ -39,6 +45,11 @@ class AppPages {
       page: () =>  PropertyManager(),
       binding: PropertyManagerBinding(),
     ),
+     GetPage(
+      name: _Paths.AddingEngineer,
+      page: () =>  AddingEngineer(),
+      binding: AddingEngineerBinding(),
+    ),
          
     
 
@@ -53,6 +64,16 @@ class AppPages {
       name: Routes.REGISTER,
       page: () => RegisterView(),
       binding: RegisterBinding(),
+    ),
+     GetPage(
+      name: Routes.DashBoard,
+      page: () =>  DashBoardPage(),
+      binding: Dashboardbindings(),
+    ),
+    GetPage(
+      name: Routes.DeletingTool,
+      page: () =>  Deletingtool(),
+      binding: DeletingToolBinding(),
     ),
   ];
 }

@@ -8,5 +8,9 @@ class ApiEndpoints {
   // Houses
   static const String houses = '/api/houses';
   static const String featuredHouses = '/api/featured-houses';
+    static const String architects = '/api/architects';
+
+  static const String engineers = '/api/architects';
+
 
 }

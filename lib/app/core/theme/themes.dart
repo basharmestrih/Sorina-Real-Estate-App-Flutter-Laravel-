@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:my_house_app/app/core/theme/colors.dart';
+import 'package:my_house_app/app/data/services/locale_service.dart';
 
 
 
 class AppTheme {
+  final localeService = Get.find<LocaleService>();
   static const String primaryFont = 'Cairo';
   static const String secondaryFont = 'Inter';
   static const String thirdFont = 'Playfair Display';
   //static const String arabicFont = 'Cairo';
 
+
   // Define light theme
   static ThemeData get lightTheme {
+     Get.put(LocaleService());
+     final int fontSizeAdjustment = (Get.locale?.languageCode == 'en') ? 2 : 0;
 
     return ThemeData(
       //new edits
@@ -32,23 +39,23 @@ class AppTheme {
       ),
       dividerColor: AppColors.surface,
       scaffoldBackgroundColor: AppColors.primary,
-      fontFamily: primaryFont,
+      fontFamily:  primaryFont,
       textTheme: TextTheme(
-        headlineLarge: TextStyle(fontSize: 24.r,  color: AppColors.white),
-        headlineMedium: TextStyle(fontSize: 22.r, fontWeight: FontWeight.w600, color: AppColors.white),
-        bodyLarge: TextStyle(fontSize: 30.r, color: AppColors.numbersfontcolor),
-        bodyMedium: TextStyle(fontSize: 16.r, color: AppColors.secondaryfontcolor),
-        titleLarge:TextStyle(fontSize: 23.r, color: AppColors.fontcolor,fontWeight: FontWeight.bold ),
-        bodySmall: TextStyle(fontSize: 15.r, color: AppColors.white,fontWeight: FontWeight.w800),
+        headlineLarge: TextStyle(fontSize: 24.r + fontSizeAdjustment,  color: AppColors.white),
+        headlineMedium: TextStyle(fontSize: 22.r + fontSizeAdjustment, fontWeight: FontWeight.w600, color: AppColors.white),
+        bodyLarge: TextStyle(fontSize: 33.r + fontSizeAdjustment, color: AppColors.fontcolor,fontWeight: FontWeight.w900),
+        bodyMedium: TextStyle(fontSize: 18.r + fontSizeAdjustment, color: AppColors.secondaryfontcolor),
+        titleLarge:TextStyle(fontSize: 21.r + fontSizeAdjustment, color: AppColors.fontcolor,fontWeight: FontWeight.bold ),
+        bodySmall: TextStyle(fontSize: 13.r + fontSizeAdjustment, color: AppColors.secondaryfontcolor,fontWeight: FontWeight.w800),
 
         
 
-        titleMedium:TextStyle(fontSize: 18.r, color: AppColors.fontcolor,fontWeight: FontWeight.w600 ),
-        titleSmall: TextStyle(fontSize: 15.r, color: AppColors.secondaryfontcolor,fontWeight: FontWeight.w900),
+        titleMedium:TextStyle(fontSize: 16.r + fontSizeAdjustment, color: AppColors.fontcolor,fontWeight: FontWeight.w800 ),
+        titleSmall: TextStyle(fontSize: 15.r + fontSizeAdjustment, color: AppColors.fontcolor),
         // for numbers
-        labelLarge: TextStyle(fontSize: 28.r, fontWeight: FontWeight.bold, color: AppColors.numbersfontcolor),
-        labelMedium: TextStyle(fontSize: 26.r, fontWeight: FontWeight.bold, color:AppColors.secondaryfontcolor),
-        labelSmall: TextStyle(fontSize: 12.r, fontWeight: FontWeight.bold, color: AppColors.fontcolor),
+        labelLarge: TextStyle(fontSize: 28.r + fontSizeAdjustment, fontWeight: FontWeight.bold, color: AppColors.numbersfontcolor),
+        labelMedium: TextStyle(fontSize: 26.r + fontSizeAdjustment, fontWeight: FontWeight.bold, color:AppColors.secondaryfontcolor),
+        labelSmall: TextStyle(fontSize: 12.r + fontSizeAdjustment, fontWeight: FontWeight.bold, color: AppColors.fontcolor),
 
       ),
       appBarTheme: AppBarTheme(
@@ -81,7 +88,7 @@ class AppTheme {
           foregroundColor: AppColors.fontcolor,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
           padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 12.h),
-          textStyle: TextStyle(fontFamily: primaryFont,fontSize: 16.r, fontWeight: FontWeight.bold),
+          textStyle: TextStyle(fontFamily: LocaleService.instance.fontType,fontSize: 16.r, fontWeight: FontWeight.bold),
         ),
       ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
@@ -142,7 +149,7 @@ class AppTheme {
         onSurface: Colors.white,
       ),
       scaffoldBackgroundColor: Colors.black,
-      fontFamily: primaryFont,
+      fontFamily: LocaleService.instance.fontType,
       textTheme: TextTheme(
         headlineLarge: TextStyle(fontSize: 32.r, fontWeight: FontWeight.bold, color: Colors.white),
         headlineMedium: TextStyle(fontSize: 28.r, fontWeight: FontWeight.w600, color: Colors.white),

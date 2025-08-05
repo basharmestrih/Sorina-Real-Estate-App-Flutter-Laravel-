@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:my_house_app/app/core/theme/colors.dart';
 
@@ -17,7 +18,8 @@ class PropertyFeatures extends StatelessWidget {
       children: [
         Text(
           'label_features'.tr,
-          style: Theme.of(context).textTheme.titleMedium,
+        style: Theme.of(context).textTheme.bodyMedium!.copyWith(color:AppColors.fontcolor),
+
         ),
         const SizedBox(height: 6),
         ...features.map(
@@ -25,17 +27,19 @@ class PropertyFeatures extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 6.0),
             child: Row(
               children: [
-                Text(
-                  feature,
-                  style: Theme.of(context).textTheme.bodyMedium,
-                ),
-                const SizedBox(width: 8),
-                const Icon(
+                   Icon(
                   Icons.check_sharp,
                   weight: 2000,
                   color: AppColors.black,
-                  size: 30,
+                  size: 25.sp,
                 ),
+                 const SizedBox(width: 8),
+                 Text(
+                  feature,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+               
+                
               ],
             ),
           ),

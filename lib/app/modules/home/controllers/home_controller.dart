@@ -8,6 +8,11 @@ class HomeController extends GetxController {
   RxBool isLoading = false.obs;
   RxString errorMessage = ''.obs;
   Rxn<HomeModel> featuredHouse = Rxn<HomeModel>();
+    @override
+  void onInit() {
+    super.onInit(); // ✅ should be before fetch
+    fetchFeaturedHouse();
+  }
 
   void fetchFeaturedHouse() async {
     isLoading.value = true;
@@ -16,6 +21,7 @@ class HomeController extends GetxController {
     final result = await _houseService.fetchFeaturedHouse();
 
     if (result != null) {
+      print(result);
       featuredHouse.value = result;
     } else {
       errorMessage.value = 'Failed to load featured house';

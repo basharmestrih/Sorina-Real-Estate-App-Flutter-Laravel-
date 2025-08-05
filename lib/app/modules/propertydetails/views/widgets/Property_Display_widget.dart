@@ -16,6 +16,11 @@ class PropertyGallery extends StatefulWidget {
 
 class _PropertyGalleryState extends State<PropertyGallery> {
   int _currentIndex = 0;
+  List imgurltest= [
+    'https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg',
+'https://images.pexels.com/photos/1571453/pexels-photo-1571453.jpeg',
+    'https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +29,7 @@ class _PropertyGalleryState extends State<PropertyGallery> {
         Stack(
           children: [
             CarouselSlider(
-              items: widget.imageUrls.map((imageUrl) {
+              items: imgurltest.map((imageUrl) {
                 return ShaderMask(
                   shaderCallback: (Rect bounds) {
                     return const LinearGradient(
@@ -58,11 +63,11 @@ class _PropertyGalleryState extends State<PropertyGallery> {
                 },
               ),
             ),
-            Positioned(
+            /*Positioned(
               top: 16.h,
               right: 16.w,
               child: const PropertyVideo(),
-            ),
+            ),*/
           ],
         ),
         const SizedBox(height: 10),

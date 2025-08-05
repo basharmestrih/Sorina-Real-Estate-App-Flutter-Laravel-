@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:my_house_app/app/core/theme/colors.dart';
-import 'package:my_house_app/app/modules/mainbar/controllers/mainbar_controller.dart';
+import 'package:my_house_app/app/modules/mainscreen/controllers/mainbar_controller.dart';
 
 class ServiceCard extends StatelessWidget {
   final String title;
